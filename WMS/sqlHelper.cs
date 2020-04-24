@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data;
 
 namespace WMS
 {
     public class sqlHelper
     {
-        private string connString = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
+        private static string connString = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
 
         public object ExecuteScalar(string sql,SqlParameter[] paras)
         {
@@ -25,6 +26,25 @@ namespace WMS
                  o = cmd.ExecuteScalar();//执行查询，返回结果第一行第一列的值
             }
             return o;
+        }
+
+        public static System.Data.DataTable GetDataTable(string sql,params SqlParameter[] paras)
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                //创建Command对象
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                if(paras!=null)
+                {
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddRange(paras);
+                }
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                da.Fill(dataTable);
+            }
+            return dataTable;
         }
     }
 }

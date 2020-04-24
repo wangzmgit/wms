@@ -52,8 +52,9 @@ namespace WMS
             }
             else
             {
-                MessageBox.Show("111");
-
+                WMSHome wms = new WMSHome();
+                wms.Show();
+                this.Hide();
             }
         }
     }
