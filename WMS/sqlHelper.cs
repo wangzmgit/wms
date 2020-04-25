@@ -46,5 +46,19 @@ namespace WMS
             }
             return dataTable;
         }
+
+        public static int ExecuteNonQuery (string sql,params SqlParameter[] paras)
+        {
+            int count=0;
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddRange(paras);
+                conn.Open();
+                count = cmd.ExecuteNonQuery();//执行T-SQL语句，返回受影响的行数
+            }
+            return count;
+        }
     }
 }

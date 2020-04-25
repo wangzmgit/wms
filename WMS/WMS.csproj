@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="sqlHelper.cs" />
+    <Compile Include="WMSadd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WMSadd.Designer.cs">
+      <DependentUpon>WMSadd.cs</DependentUpon>
+    </Compile>
     <Compile Include="WMSHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="WMSadd.resx">
+      <DependentUpon>WMSadd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WMSHome.resx">
       <DependentUpon>WMSHome.cs</DependentUpon>
     </EmbeddedResource>

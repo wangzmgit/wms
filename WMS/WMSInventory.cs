@@ -23,5 +23,7 @@ namespace WMS
             DataTable dtGradeList = sqlHelper.GetDataTable(sql);
             dgvInventory.DataSource = dtGradeList;
         }
+
+       
     }
 }

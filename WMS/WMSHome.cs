@@ -46,5 +46,12 @@ namespace WMS
             inventory.MdiParent = this;
             inventory.Show();
         }
+
+        private void newRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WMSadd add = new WMSadd();
+            add.MdiParent = this;
+            add.Show();
+        }
     }
 }
