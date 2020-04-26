@@ -11,7 +11,7 @@ namespace WMS
 {
     public class sqlHelper
     {
-        private static string connString = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
+        public static string connString = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
 
         public object ExecuteScalar(string sql,SqlParameter[] paras)
         {
@@ -60,5 +60,6 @@ namespace WMS
             }
             return count;
         }
+
     }
 }

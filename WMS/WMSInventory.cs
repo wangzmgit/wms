@@ -44,12 +44,10 @@ namespace WMS
                 dgvInventory.DataSource = dataTable;
             }
         }
-
+        //显示全部按钮 
         private void button2_Click(object sender, EventArgs e)
         {
-            string sql = "select productID,name,stock,unit,supplier,entry,remarks from Inventory";
-            DataTable dtGradeList = sqlHelper.GetDataTable(sql);
-            dgvInventory.DataSource = dtGradeList;
+            WMSInventory_Load(sender,e);
         }
     }
 }

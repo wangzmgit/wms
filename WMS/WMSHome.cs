@@ -53,5 +53,12 @@ namespace WMS
             add.MdiParent = this;
             add.Show();
         }
+
+        private void modifyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WMSedit wmsEdit = new WMSedit();
+            wmsEdit.MdiParent = this;
+            wmsEdit.Show();
+        }
     }
 }

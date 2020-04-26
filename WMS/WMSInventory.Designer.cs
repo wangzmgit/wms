@@ -37,10 +37,10 @@
             this.entry = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textName = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +59,7 @@
             this.dgvInventory.Location = new System.Drawing.Point(0, 97);
             this.dgvInventory.Name = "dgvInventory";
             this.dgvInventory.RowTemplate.Height = 27;
-            this.dgvInventory.Size = new System.Drawing.Size(1082, 533);
+            this.dgvInventory.Size = new System.Drawing.Size(1082, 437);
             this.dgvInventory.TabIndex = 0;
             // 
             // productID
@@ -123,23 +123,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查找";
             // 
-            // label1
+            // button2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(258, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "产品名称";
-            // 
-            // textName
-            // 
-            this.textName.Location = new System.Drawing.Point(353, 38);
-            this.textName.Multiline = true;
-            this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(244, 32);
-            this.textName.TabIndex = 1;
+            this.button2.Location = new System.Drawing.Point(793, 38);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(122, 32);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "显示全部";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -151,15 +143,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // textName
             // 
-            this.button2.Location = new System.Drawing.Point(793, 38);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 32);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "显示全部";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.textName.Location = new System.Drawing.Point(353, 38);
+            this.textName.Multiline = true;
+            this.textName.Name = "textName";
+            this.textName.Size = new System.Drawing.Size(244, 32);
+            this.textName.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(258, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "产品名称";
             // 
             // WMSInventory
             // 
