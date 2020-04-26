@@ -86,6 +86,12 @@
     <Compile Include="WMSmodify.Designer.cs">
       <DependentUpon>WMSmodify.cs</DependentUpon>
     </Compile>
+    <Compile Include="WMSuser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WMSuser.Designer.cs">
+      <DependentUpon>WMSuser.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="WMSadd.resx">
       <DependentUpon>WMSadd.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +118,9 @@
     </Compile>
     <EmbeddedResource Include="WMSmodify.resx">
       <DependentUpon>WMSmodify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WMSuser.resx">
+      <DependentUpon>WMSuser.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

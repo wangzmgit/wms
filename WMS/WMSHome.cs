@@ -60,5 +60,12 @@ namespace WMS
             wmsEdit.MdiParent = this;
             wmsEdit.Show();
         }
+
+        private void userToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WMSuser wmsUser = new WMSuser();
+            wmsUser.MdiParent = this;
+            wmsUser.Show();
+        }
     }
 }
