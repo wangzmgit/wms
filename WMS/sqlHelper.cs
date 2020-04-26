@@ -60,6 +60,30 @@ namespace WMS
             }
             return count;
         }
+        /// <summary>
+        /// 执行查询，返回SqlDataReader
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <param name="paras"></param>
+        /// <returns></returns>
+        public static SqlDataReader ExecutReader (string sql,params SqlParameter[] paras)
+        {
+            SqlConnection conn = new SqlConnection(connString);
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Clear();        
+                cmd.Parameters.AddRange(paras);
+                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                return reader;
+            }
+            catch(SqlException ex)
+            {
+                conn.Close();
+                throw new Exception("执行查询出现异常",ex);
+            }
+        }
 
     }
 }

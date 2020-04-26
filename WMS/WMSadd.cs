@@ -58,7 +58,12 @@ namespace WMS
             if(oCount==null||oCount==DBNull.Value||(int)oCount==0)
             {
                 //不存在数据，进行添加
-                int intStock = int.Parse(stock);
+                int intStock;
+                if(!int.TryParse(stock, out intStock))
+                {
+                    MessageBox.Show("数量输入有误", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 string sqlAdd = "insert into Inventory (name,stock,unit,supplier,entry,remarks) values (@name,@stock,@unit,@supplier,@entry,@remarks)";
                 SqlParameter[] paras =
                 {
@@ -76,7 +81,7 @@ namespace WMS
                 }
                 else
                 {
-                    MessageBox.Show("插入失败", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("插入失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 return;
             }
@@ -87,5 +92,9 @@ namespace WMS
             }
         }
 
+        private void WMSadd_Load(object sender, EventArgs e)
+        {
+            this.comboBoxUnit.SelectedIndex = 0;
+        }
     }
 }

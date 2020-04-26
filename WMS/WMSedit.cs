@@ -25,6 +25,20 @@ namespace WMS
             dgvEdit.DataSource = dtGradeList;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string name = textName.Text.Trim();
+            string sql = "select productID,name,stock,unit,supplier,entry,remarks from Inventory where name Like @name";
+            if (!string.IsNullOrEmpty(name))
+            {
+                SqlParameter[] paras =
+                {
+                    new SqlParameter("@name","%"+name+"%")
+                };
+                DataTable dataTable = sqlHelper.GetDataTable(sql, paras);
+                dgvEdit.DataSource = dataTable;
+            }
+        }
         /// <summary>
         /// 修改和删除功能
         /// </summary>
@@ -34,18 +48,21 @@ namespace WMS
         {
             if(e.RowIndex!=-1)
             {
+                DataRow row = (dgvEdit.Rows[e.RowIndex].DataBoundItem as DataRowView).Row;
                 DataGridViewCell cell = dgvEdit.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 if (cell is DataGridViewLinkCell && cell.FormattedValue.ToString() == "修改")
                 {
                     //打开修改窗口，传递ID
-
+                    int proID = (int)row["productID"];
+                    WMSmodify modify = new WMSmodify(proID);
+                    modify.MdiParent = this.MdiParent;
+                    modify.Show();
                 }
                 else if (cell is DataGridViewLinkCell && cell.FormattedValue.ToString() == "删除")
                 {
                     if(MessageBox.Show("确定删除该信息吗？","警告",MessageBoxButtons.YesNo,MessageBoxIcon.Warning)==DialogResult.Yes)
                     {
                         //获取ID号
-                        DataRow row = (dgvEdit.Rows[e.RowIndex].DataBoundItem as DataRowView).Row;
                         int productID = int.Parse(row["productID"].ToString());
                         string sql = "delete from Inventory where productID = @productID";
                         SqlParameter paras = new SqlParameter("@productID", productID);
@@ -125,5 +142,7 @@ namespace WMS
                 }
             }
         }
+
+
     }
 }

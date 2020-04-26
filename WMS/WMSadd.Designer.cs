@@ -204,6 +204,7 @@
             this.MaximizeBox = false;
             this.Name = "WMSadd";
             this.Text = "入库";
+            this.Load += new System.EventHandler(this.WMSadd_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

@@ -85,8 +85,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 51);
             this.button1.TabIndex = 11;
-            this.button1.Text = "确认添加";
+            this.button1.Text = "确认修改";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textRemarks
             // 
@@ -201,7 +202,8 @@
             this.ClientSize = new System.Drawing.Size(782, 453);
             this.Controls.Add(this.panel1);
             this.Name = "WMSmodify";
-            this.Text = "WMSmodify";
+            this.Text = "修改信息";
+            this.Load += new System.EventHandler(this.WMSmodify_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
