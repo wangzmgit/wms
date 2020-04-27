@@ -67,5 +67,12 @@ namespace WMS
             wmsUser.MdiParent = this;
             wmsUser.Show();
         }
+
+        private void sellToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WMSsell sell = new WMSsell();
+            sell.MdiParent = this;
+            sell.Show();
+        }
     }
 }

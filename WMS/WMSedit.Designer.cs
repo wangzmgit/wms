@@ -127,7 +127,7 @@
             this.remarks,
             this.modify,
             this.delete});
-            this.dgvEdit.Location = new System.Drawing.Point(0, 86);
+            this.dgvEdit.Location = new System.Drawing.Point(0, 96);
             this.dgvEdit.Name = "dgvEdit";
             this.dgvEdit.RowTemplate.Height = 27;
             this.dgvEdit.Size = new System.Drawing.Size(1082, 435);

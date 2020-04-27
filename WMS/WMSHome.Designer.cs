@@ -36,6 +36,7 @@
             this.newRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +47,8 @@
             this.homeToolStripMenuItem,
             this.inventoryToolStripMenuItem,
             this.editToolStripMenuItem,
-            this.userToolStripMenuItem});
+            this.userToolStripMenuItem,
+            this.sellToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1182, 28);
@@ -96,6 +98,13 @@
             this.userToolStripMenuItem.Text = "用户管理";
             this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
+            // sellToolStripMenuItem
+            // 
+            this.sellToolStripMenuItem.Name = "sellToolStripMenuItem";
+            this.sellToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
+            this.sellToolStripMenuItem.Text = "销售";
+            this.sellToolStripMenuItem.Click += new System.EventHandler(this.sellToolStripMenuItem_Click);
+            // 
             // WMSHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -125,5 +134,6 @@
         private System.Windows.Forms.ToolStripMenuItem newRecordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modifyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sellToolStripMenuItem;
     }
 }
