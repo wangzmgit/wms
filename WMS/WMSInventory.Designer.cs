@@ -58,6 +58,7 @@
             this.remarks});
             this.dgvInventory.Location = new System.Drawing.Point(0, 97);
             this.dgvInventory.Name = "dgvInventory";
+            this.dgvInventory.ReadOnly = true;
             this.dgvInventory.RowTemplate.Height = 27;
             this.dgvInventory.Size = new System.Drawing.Size(1082, 437);
             this.dgvInventory.TabIndex = 0;
@@ -67,6 +68,7 @@
             this.productID.DataPropertyName = "productID";
             this.productID.HeaderText = "产品ID";
             this.productID.Name = "productID";
+            this.productID.ReadOnly = true;
             this.productID.Width = 110;
             // 
             // name
@@ -74,6 +76,7 @@
             this.name.DataPropertyName = "name";
             this.name.HeaderText = "产品名称";
             this.name.Name = "name";
+            this.name.ReadOnly = true;
             this.name.Width = 135;
             // 
             // stock
@@ -81,12 +84,14 @@
             this.stock.DataPropertyName = "stock";
             this.stock.HeaderText = "数量";
             this.stock.Name = "stock";
+            this.stock.ReadOnly = true;
             // 
             // unit
             // 
             this.unit.DataPropertyName = "unit";
             this.unit.HeaderText = "单位";
             this.unit.Name = "unit";
+            this.unit.ReadOnly = true;
             this.unit.Width = 60;
             // 
             // supplier
@@ -94,6 +99,7 @@
             this.supplier.DataPropertyName = "supplier";
             this.supplier.HeaderText = "供应商";
             this.supplier.Name = "supplier";
+            this.supplier.ReadOnly = true;
             this.supplier.Width = 110;
             // 
             // entry
@@ -101,12 +107,14 @@
             this.entry.DataPropertyName = "entry";
             this.entry.HeaderText = "录入人员";
             this.entry.Name = "entry";
+            this.entry.ReadOnly = true;
             // 
             // remarks
             // 
             this.remarks.DataPropertyName = "remarks";
             this.remarks.HeaderText = "备注";
             this.remarks.Name = "remarks";
+            this.remarks.ReadOnly = true;
             this.remarks.Width = 150;
             // 
             // groupBox1

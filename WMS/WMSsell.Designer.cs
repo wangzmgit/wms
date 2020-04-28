@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textQuantity = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -143,6 +143,7 @@
             this.add});
             this.dgvInventory.Location = new System.Drawing.Point(0, 91);
             this.dgvInventory.Name = "dgvInventory";
+            this.dgvInventory.ReadOnly = true;
             this.dgvInventory.RowTemplate.Height = 27;
             this.dgvInventory.Size = new System.Drawing.Size(1024, 131);
             this.dgvInventory.TabIndex = 4;
@@ -153,6 +154,7 @@
             this.productID.DataPropertyName = "productID";
             this.productID.HeaderText = "产品ID";
             this.productID.Name = "productID";
+            this.productID.ReadOnly = true;
             this.productID.Width = 80;
             // 
             // name
@@ -160,32 +162,37 @@
             this.name.DataPropertyName = "name";
             this.name.HeaderText = "产品名称";
             this.name.Name = "name";
+            this.name.ReadOnly = true;
             // 
             // stock
             // 
             this.stock.DataPropertyName = "stock";
             this.stock.HeaderText = "库存";
             this.stock.Name = "stock";
+            this.stock.ReadOnly = true;
             // 
             // dgvUnit
             // 
             this.dgvUnit.DataPropertyName = "unit";
             this.dgvUnit.HeaderText = "单位";
             this.dgvUnit.Name = "dgvUnit";
+            this.dgvUnit.ReadOnly = true;
             // 
             // remarks
             // 
             this.remarks.DataPropertyName = "remarks";
             this.remarks.HeaderText = "备注";
             this.remarks.Name = "remarks";
+            this.remarks.ReadOnly = true;
             this.remarks.Width = 150;
             // 
             // add
             // 
-            dataGridViewCellStyle1.NullValue = "添加";
-            this.add.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.NullValue = "添加";
+            this.add.DefaultCellStyle = dataGridViewCellStyle5;
             this.add.HeaderText = "添加";
             this.add.Name = "add";
+            this.add.ReadOnly = true;
             this.add.Width = 50;
             // 
             // groupBox2
@@ -220,6 +227,7 @@
             this.removeLine});
             this.dgvOrder.Location = new System.Drawing.Point(6, 37);
             this.dgvOrder.Name = "dgvOrder";
+            this.dgvOrder.ReadOnly = true;
             this.dgvOrder.RowTemplate.Height = 27;
             this.dgvOrder.Size = new System.Drawing.Size(1024, 242);
             this.dgvOrder.TabIndex = 5;
@@ -251,10 +259,11 @@
             // 
             // removeLine
             // 
-            dataGridViewCellStyle2.NullValue = "移除";
-            this.removeLine.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.NullValue = "移除";
+            this.removeLine.DefaultCellStyle = dataGridViewCellStyle6;
             this.removeLine.HeaderText = "移除";
             this.removeLine.Name = "removeLine";
+            this.removeLine.ReadOnly = true;
             this.removeLine.Width = 80;
             // 
             // WMSsell
@@ -267,6 +276,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "WMSsell";
             this.Text = "销售";
+            this.Load += new System.EventHandler(this.WMSsell_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).EndInit();

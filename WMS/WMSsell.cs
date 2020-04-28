@@ -18,6 +18,12 @@ namespace WMS
             InitializeComponent();
         }
 
+        private void WMSsell_Load(object sender, EventArgs e)
+        {
+            dgvInventory.AllowUserToAddRows = false;
+            dgvOrder.AllowUserToAddRows = false;
+        }
+
         private void displayALL_Click(object sender, EventArgs e)
         {
             //显示全部信息
@@ -58,6 +64,12 @@ namespace WMS
                     {
                         quantity = "1";//默认数量为1
                     }
+                    int temp;//临时变量，检测数量正确性
+                    if (!int.TryParse(quantity, out temp))
+                    {
+                        MessageBox.Show("数量输入有误", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     int index = dgvOrder.Rows.Add();
                     dgvOrder.Rows[index].Cells[0].Value = row["productID"].ToString();
                     dgvOrder.Rows[index].Cells[1].Value = row["name"].ToString();
@@ -86,18 +98,14 @@ namespace WMS
         private void button3_Click(object sender, EventArgs e)
         {
             string orderNum = dataProcessing.GenerateOrderNo();//生成订单号
-            int[] IDarr = new int[dgvOrder.RowCount - 1];
-            int[] quantityArr = new int[dgvOrder.RowCount - 1];//储存数量
-            for (int i = 0; i < dgvOrder.RowCount-1; i++)
+            int[] IDarr = new int[dgvOrder.RowCount];
+            int[] quantityArr = new int[dgvOrder.RowCount];//储存数量
+            for (int i = 0; i < dgvOrder.RowCount; i++)
             {
                 //获取全部ID
-                string proID = dgvOrder.Rows[i].Cells[0].Value.ToString();
-                int intProID = int.Parse(proID);
-                IDarr[i] = intProID;
+                IDarr[i] = int.Parse(dgvOrder.Rows[i].Cells[0].Value.ToString());
                 //获取全部数量
-                string count = dgvOrder.Rows[i].Cells[2].Value.ToString();
-                int intCount = int.Parse(count);
-                quantityArr[i] = intCount;   
+                quantityArr[i] = int.Parse(dgvOrder.Rows[i].Cells[2].Value.ToString());
             }
             //写入订单表，获取订单ID
             string sql = "insert into [order](orderNum) values(@orderNum);select @@identity";
@@ -105,25 +113,49 @@ namespace WMS
             {
                     new SqlParameter("@orderNum",orderNum),
             };
-            string key = sqlHelper.insertDate(sql, paras);
+            string key = sqlHelper.insertDate(sql, paras);//订单的ID
             if (!string.IsNullOrEmpty(key))
             {
                 //创建商品表
                 string sqlAdd = "insert into order_product (orderID,productID,quantity) values (@orderID,@productID,@quantity)";
-                for (int j = 0; j < dgvOrder.RowCount - 1; j++)
+                for (int j = 0; j < dgvOrder.RowCount; j++)
                 {
                     SqlParameter[] parasOrder =
                     {
                             new SqlParameter("@orderID",key),
                             new SqlParameter("@productID",IDarr[j].ToString()),
                             new SqlParameter("@quantity",quantityArr[j].ToString())
-                        };
+                    };
                     int addProReturn = sqlHelper.ExecuteNonQuery(sqlAdd, parasOrder);
                     if (addProReturn<=0)
                     {
                         MessageBox.Show("订单创建失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                     }
+                    //修改库存
+                    string sqlFind = "select stock from Inventory where productID = @productID";
+                    SqlParameter paraID = new SqlParameter("@productID", IDarr[j]);
+                    SqlDataReader reader = sqlHelper.ExecutReader(sqlFind, paraID);
+                    if(reader.Read())
+                    {
+                        //获取旧库存
+                        int oldStock =int.Parse( reader["stock"].ToString());
+                        //旧库存减去
+                        oldStock -= int.Parse(quantityArr[j].ToString());
+                        //重新写入
+                        string sqlUpdate = "update Inventory set stock = @stock where productID = @productID";
+                        SqlParameter[] parasUpdate =
+                        {
+                             new SqlParameter("@stock",oldStock),
+                             new SqlParameter("@productID",IDarr[j])
+                        };
+                        int updataReturn = sqlHelper.ExecuteNonQuery(sqlUpdate, parasUpdate);
+                        if(updataReturn<=0)
+                        {
+                            MessageBox.Show("库存更新时发生错误", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
                 }
                 MessageBox.Show("订单创建成功，单号为" + orderNum, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -133,5 +165,7 @@ namespace WMS
             }
 
         }
+
+
     }
 }

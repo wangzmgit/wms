@@ -23,6 +23,7 @@ namespace WMS
             string sql = "select productID,name,stock,unit,supplier,entry,remarks from Inventory";
             DataTable dtGradeList = sqlHelper.GetDataTable(sql);
             dgvInventory.DataSource = dtGradeList;
+            dgvInventory.AllowUserToAddRows = false;//去除空行
         }
 
         /// <summary>

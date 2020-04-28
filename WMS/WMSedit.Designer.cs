@@ -129,6 +129,7 @@
             this.delete});
             this.dgvEdit.Location = new System.Drawing.Point(0, 96);
             this.dgvEdit.Name = "dgvEdit";
+            this.dgvEdit.ReadOnly = true;
             this.dgvEdit.RowTemplate.Height = 27;
             this.dgvEdit.Size = new System.Drawing.Size(1082, 435);
             this.dgvEdit.TabIndex = 3;
@@ -138,6 +139,7 @@
             // 
             this.check.HeaderText = "";
             this.check.Name = "check";
+            this.check.ReadOnly = true;
             this.check.Width = 30;
             // 
             // productID
@@ -145,6 +147,7 @@
             this.productID.DataPropertyName = "productID";
             this.productID.HeaderText = "产品ID";
             this.productID.Name = "productID";
+            this.productID.ReadOnly = true;
             this.productID.Width = 80;
             // 
             // name
@@ -152,12 +155,14 @@
             this.name.DataPropertyName = "name";
             this.name.HeaderText = "产品名称";
             this.name.Name = "name";
+            this.name.ReadOnly = true;
             // 
             // stock
             // 
             this.stock.DataPropertyName = "stock";
             this.stock.HeaderText = "数量";
             this.stock.Name = "stock";
+            this.stock.ReadOnly = true;
             this.stock.Width = 50;
             // 
             // unit
@@ -165,6 +170,7 @@
             this.unit.DataPropertyName = "unit";
             this.unit.HeaderText = "单位";
             this.unit.Name = "unit";
+            this.unit.ReadOnly = true;
             this.unit.Width = 50;
             // 
             // supplier
@@ -172,6 +178,7 @@
             this.supplier.DataPropertyName = "supplier";
             this.supplier.HeaderText = "供应商";
             this.supplier.Name = "supplier";
+            this.supplier.ReadOnly = true;
             this.supplier.Width = 110;
             // 
             // entry
@@ -179,12 +186,14 @@
             this.entry.DataPropertyName = "entry";
             this.entry.HeaderText = "录入人员";
             this.entry.Name = "entry";
+            this.entry.ReadOnly = true;
             // 
             // remarks
             // 
             this.remarks.DataPropertyName = "remarks";
             this.remarks.HeaderText = "备注";
             this.remarks.Name = "remarks";
+            this.remarks.ReadOnly = true;
             this.remarks.Width = 150;
             // 
             // modify
@@ -193,6 +202,7 @@
             this.modify.DefaultCellStyle = dataGridViewCellStyle1;
             this.modify.HeaderText = "修改";
             this.modify.Name = "modify";
+            this.modify.ReadOnly = true;
             this.modify.Width = 50;
             // 
             // delete
@@ -201,6 +211,7 @@
             this.delete.DefaultCellStyle = dataGridViewCellStyle2;
             this.delete.HeaderText = "删除";
             this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
             this.delete.Width = 50;
             // 
             // WMSedit
