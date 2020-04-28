@@ -82,7 +82,11 @@ namespace WMS
                 }
             }
         }
-
+        /// <summary>
+        /// 批量删除
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             List<int> listID = new List<int>();

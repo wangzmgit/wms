@@ -84,6 +84,25 @@ namespace WMS
                 throw new Exception("执行查询出现异常",ex);
             }
         }
+        /// <summary>
+        /// 插入数据，返回主键id
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <param name="paras"></param>
+        /// <returns></returns>
+        public static string insertDate(string sql,params SqlParameter[] paras)
+        {
+            string key = null;
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddRange(paras);
+                conn.Open();
+                key = cmd.ExecuteScalar().ToString();
+            }
+            return key;
+        }
 
     }
 }

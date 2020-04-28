@@ -56,18 +56,14 @@ namespace WMS
                     string quantity = textQuantity.Text.Trim();
                     if (string.IsNullOrEmpty(quantity))
                     {
-                        MessageBox.Show("数量不能为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        return;
+                        quantity = "1";//默认数量为1
                     }
-                    else
-                    {
-                        int index = dgvOrder.Rows.Add();
-                        dgvOrder.Rows[index].Cells[0].Value = row["productID"].ToString();
-                        dgvOrder.Rows[index].Cells[1].Value = row["name"].ToString();
-                        dgvOrder.Rows[index].Cells[2].Value = quantity;
-                        dgvOrder.Rows[index].Cells[3].Value = row["unit"].ToString();
-                        textQuantity.Text = "";
-                    }
+                    int index = dgvOrder.Rows.Add();
+                    dgvOrder.Rows[index].Cells[0].Value = row["productID"].ToString();
+                    dgvOrder.Rows[index].Cells[1].Value = row["name"].ToString();
+                    dgvOrder.Rows[index].Cells[2].Value = quantity;
+                    dgvOrder.Rows[index].Cells[3].Value = row["unit"].ToString();
+                    textQuantity.Text = "";
                 }
             }
         }
@@ -77,14 +73,65 @@ namespace WMS
 
             if (e.RowIndex!=-1)
             {
-
                 DataGridViewCell cellOrder = dgvOrder.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 if (cellOrder is DataGridViewLinkCell && cellOrder.FormattedValue.ToString() == "移除")
                 {
+                    //对选择的进行移除
                     DataGridViewRow rowRemove = dgvOrder.Rows[e.RowIndex];
                     dgvOrder.Rows.Remove(rowRemove);
                 }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string orderNum = dataProcessing.GenerateOrderNo();//生成订单号
+            int[] IDarr = new int[dgvOrder.RowCount - 1];
+            int[] quantityArr = new int[dgvOrder.RowCount - 1];//储存数量
+            for (int i = 0; i < dgvOrder.RowCount-1; i++)
+            {
+                //获取全部ID
+                string proID = dgvOrder.Rows[i].Cells[0].Value.ToString();
+                int intProID = int.Parse(proID);
+                IDarr[i] = intProID;
+                //获取全部数量
+                string count = dgvOrder.Rows[i].Cells[2].Value.ToString();
+                int intCount = int.Parse(count);
+                quantityArr[i] = intCount;   
+            }
+            //写入订单表，获取订单ID
+            string sql = "insert into [order](orderNum) values(@orderNum);select @@identity";
+            SqlParameter[] paras =
+            {
+                    new SqlParameter("@orderNum",orderNum),
+            };
+            string key = sqlHelper.insertDate(sql, paras);
+            if (!string.IsNullOrEmpty(key))
+            {
+                //创建商品表
+                string sqlAdd = "insert into order_product (orderID,productID,quantity) values (@orderID,@productID,@quantity)";
+                for (int j = 0; j < dgvOrder.RowCount - 1; j++)
+                {
+                    SqlParameter[] parasOrder =
+                    {
+                            new SqlParameter("@orderID",key),
+                            new SqlParameter("@productID",IDarr[j].ToString()),
+                            new SqlParameter("@quantity",quantityArr[j].ToString())
+                        };
+                    int addProReturn = sqlHelper.ExecuteNonQuery(sqlAdd, parasOrder);
+                    if (addProReturn<=0)
+                    {
+                        MessageBox.Show("订单创建失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    }
+                }
+                MessageBox.Show("订单创建成功，单号为" + orderNum, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("订单创建失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
