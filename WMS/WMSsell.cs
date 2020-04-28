@@ -140,7 +140,7 @@ namespace WMS
                     {
                         //获取旧库存
                         int oldStock =int.Parse( reader["stock"].ToString());
-                        //旧库存减去
+                        //旧库存减去数量
                         oldStock -= int.Parse(quantityArr[j].ToString());
                         //重新写入
                         string sqlUpdate = "update Inventory set stock = @stock where productID = @productID";

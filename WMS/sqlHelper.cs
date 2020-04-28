@@ -28,7 +28,7 @@ namespace WMS
             return o;
         }
 
-        public static System.Data.DataTable GetDataTable(string sql,params SqlParameter[] paras)
+        public static DataTable GetDataTable(string sql,params SqlParameter[] paras)
         {
             DataTable dataTable = new DataTable();
             using (SqlConnection conn = new SqlConnection(connString))

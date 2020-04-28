@@ -74,5 +74,12 @@ namespace WMS
             sell.MdiParent = this;
             sell.Show();
         }
+
+        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WMSorder order = new WMSorder();
+            order.MdiParent = this;
+            order.Show();
+        }
     }
 }
