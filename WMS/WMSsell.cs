@@ -70,6 +70,12 @@ namespace WMS
                         MessageBox.Show("数量输入有误", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+                    int margin =int.Parse(row["stock"].ToString())-int.Parse(quantity);//用存量减去数量
+                    if(margin<0)
+                    {
+                        MessageBox.Show("库存不足", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     int index = dgvOrder.Rows.Add();
                     dgvOrder.Rows[index].Cells[0].Value = row["productID"].ToString();
                     dgvOrder.Rows[index].Cells[1].Value = row["name"].ToString();
