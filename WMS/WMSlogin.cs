@@ -14,6 +14,7 @@ namespace WMS
 {
     public partial class WMSlogin : Form
     {
+        string key = "M01z0LTnpbARncm2kdwkFVXAWMBLgmZi";//加密秘钥
         public WMSlogin()
         {
             InitializeComponent();
@@ -30,7 +31,8 @@ namespace WMS
             if(ConfigurationManager.AppSettings["rememberPwd"].Equals("true"))
             {
                 userNameText.Text = ConfigurationManager.AppSettings["name"];
-                passwordText.Text = ConfigurationManager.AppSettings["pwd"];
+                string password = ConfigurationManager.AppSettings["pwd"];
+                passwordText.Text = dataProcessing.Decrypt(password, key);
                 checkBox1.Checked = true;
                 checkBox2.Checked = true;
             }
@@ -60,6 +62,8 @@ namespace WMS
                 passwordText.Focus();
                 return;
             }
+            //加密密码
+            uPwd = dataProcessing.Encrypt(uPwd, key);
             //连接查询数据库
             string sql = "select count(1) from userInfo where UserName=@UserName and UserPwd=@UserPwd";
             SqlParameter[] paras =
@@ -89,7 +93,7 @@ namespace WMS
                     cfa.AppSettings.Settings["rememberMe"].Value = "true";
                     cfa.AppSettings.Settings["rememberPwd"].Value = "true";
                     cfa.AppSettings.Settings["name"].Value = userNameText.Text.Trim();
-                    cfa.AppSettings.Settings["pwd"].Value = passwordText.Text.Trim();
+                    cfa.AppSettings.Settings["pwd"].Value = uPwd;
                     cfa.Save();
                 }
                 else
