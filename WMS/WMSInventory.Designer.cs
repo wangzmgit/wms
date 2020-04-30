@@ -144,7 +144,7 @@
             this.productID.HeaderText = "产品ID";
             this.productID.Name = "productID";
             this.productID.ReadOnly = true;
-            this.productID.Width = 110;
+            this.productID.Width = 60;
             // 
             // name
             // 
@@ -152,7 +152,7 @@
             this.name.HeaderText = "产品名称";
             this.name.Name = "name";
             this.name.ReadOnly = true;
-            this.name.Width = 135;
+            this.name.Width = 130;
             // 
             // stock
             // 
@@ -160,6 +160,7 @@
             this.stock.HeaderText = "数量";
             this.stock.Name = "stock";
             this.stock.ReadOnly = true;
+            this.stock.Width = 80;
             // 
             // unit
             // 
@@ -175,6 +176,7 @@
             this.price.HeaderText = "售价";
             this.price.Name = "price";
             this.price.ReadOnly = true;
+            this.price.Width = 70;
             // 
             // supplier
             // 
