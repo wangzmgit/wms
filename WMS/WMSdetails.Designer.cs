@@ -28,30 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvOrder = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.dgvOrder = new System.Windows.Forms.DataGridView();
             this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvOrder
-            // 
-            this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productID,
-            this.name,
-            this.stock});
-            this.dgvOrder.Location = new System.Drawing.Point(-2, 117);
-            this.dgvOrder.Name = "dgvOrder";
-            this.dgvOrder.ReadOnly = true;
-            this.dgvOrder.RowTemplate.Height = 27;
-            this.dgvOrder.Size = new System.Drawing.Size(801, 331);
-            this.dgvOrder.TabIndex = 3;
             // 
             // groupBox1
             // 
@@ -85,6 +71,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "订单号：";
             // 
+            // dgvOrder
+            // 
+            this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productID,
+            this.name,
+            this.stock});
+            this.dgvOrder.Location = new System.Drawing.Point(-2, 117);
+            this.dgvOrder.Name = "dgvOrder";
+            this.dgvOrder.ReadOnly = true;
+            this.dgvOrder.RowTemplate.Height = 27;
+            this.dgvOrder.Size = new System.Drawing.Size(658, 485);
+            this.dgvOrder.TabIndex = 5;
+            // 
             // productID
             // 
             this.productID.DataPropertyName = "name";
@@ -113,25 +113,25 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(656, 572);
             this.Controls.Add(this.dgvOrder);
+            this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
             this.Name = "WMSdetails";
-            this.Text = "详情";
+            this.Text = "订单详情";
             this.Load += new System.EventHandler(this.WMSdetails_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvOrder;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvOrder;
         private System.Windows.Forms.DataGridViewTextBoxColumn productID;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;

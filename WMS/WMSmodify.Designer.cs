@@ -201,6 +201,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 453);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
             this.Name = "WMSmodify";
             this.Text = "修改信息";
             this.Load += new System.EventHandler(this.WMSmodify_Load);

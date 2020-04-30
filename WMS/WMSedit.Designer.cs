@@ -28,16 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.buttonDelete = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvEdit = new System.Windows.Forms.DataGridView();
-            this.check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgvInventory = new System.Windows.Forms.DataGridView();
             this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,15 +43,14 @@
             this.supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.entry = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modify = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.edit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.buttonDelete);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textName);
@@ -61,20 +58,10 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1082, 100);
-            this.groupBox1.TabIndex = 2;
+            this.groupBox1.Size = new System.Drawing.Size(1226, 100);
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查找";
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Location = new System.Drawing.Point(934, 38);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(122, 32);
-            this.buttonDelete.TabIndex = 4;
-            this.buttonDelete.Text = "批量删除";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // button2
             // 
@@ -84,6 +71,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "显示全部";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -113,11 +101,10 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "产品名称";
             // 
-            // dgvEdit
+            // dgvInventory
             // 
-            this.dgvEdit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEdit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.check,
+            this.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.productID,
             this.name,
             this.stock,
@@ -125,22 +112,15 @@
             this.supplier,
             this.entry,
             this.remarks,
-            this.modify,
+            this.edit,
             this.delete});
-            this.dgvEdit.Location = new System.Drawing.Point(0, 96);
-            this.dgvEdit.Name = "dgvEdit";
-            this.dgvEdit.ReadOnly = true;
-            this.dgvEdit.RowTemplate.Height = 27;
-            this.dgvEdit.Size = new System.Drawing.Size(1082, 435);
-            this.dgvEdit.TabIndex = 3;
-            this.dgvEdit.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEdit_CellContentClick);
-            // 
-            // check
-            // 
-            this.check.HeaderText = "";
-            this.check.Name = "check";
-            this.check.ReadOnly = true;
-            this.check.Width = 30;
+            this.dgvInventory.Location = new System.Drawing.Point(0, 106);
+            this.dgvInventory.Name = "dgvInventory";
+            this.dgvInventory.ReadOnly = true;
+            this.dgvInventory.RowTemplate.Height = 27;
+            this.dgvInventory.Size = new System.Drawing.Size(1226, 513);
+            this.dgvInventory.TabIndex = 4;
+            this.dgvInventory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventory_CellContentClick);
             // 
             // productID
             // 
@@ -148,7 +128,7 @@
             this.productID.HeaderText = "产品ID";
             this.productID.Name = "productID";
             this.productID.ReadOnly = true;
-            this.productID.Width = 80;
+            this.productID.Width = 60;
             // 
             // name
             // 
@@ -156,6 +136,7 @@
             this.name.HeaderText = "产品名称";
             this.name.Name = "name";
             this.name.ReadOnly = true;
+            this.name.Width = 135;
             // 
             // stock
             // 
@@ -163,7 +144,7 @@
             this.stock.HeaderText = "数量";
             this.stock.Name = "stock";
             this.stock.ReadOnly = true;
-            this.stock.Width = 50;
+            this.stock.Width = 80;
             // 
             // unit
             // 
@@ -171,7 +152,7 @@
             this.unit.HeaderText = "单位";
             this.unit.Name = "unit";
             this.unit.ReadOnly = true;
-            this.unit.Width = 50;
+            this.unit.Width = 60;
             // 
             // supplier
             // 
@@ -196,37 +177,39 @@
             this.remarks.ReadOnly = true;
             this.remarks.Width = 150;
             // 
-            // modify
+            // edit
             // 
-            dataGridViewCellStyle1.NullValue = "修改";
-            this.modify.DefaultCellStyle = dataGridViewCellStyle1;
-            this.modify.HeaderText = "修改";
-            this.modify.Name = "modify";
-            this.modify.ReadOnly = true;
-            this.modify.Width = 50;
+            dataGridViewCellStyle3.NullValue = "修改";
+            this.edit.DefaultCellStyle = dataGridViewCellStyle3;
+            this.edit.HeaderText = "修改";
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
+            this.edit.Width = 80;
             // 
             // delete
             // 
-            dataGridViewCellStyle2.NullValue = "删除";
-            this.delete.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.NullValue = "删除";
+            this.delete.DefaultCellStyle = dataGridViewCellStyle4;
             this.delete.HeaderText = "删除";
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
-            this.delete.Width = 50;
+            this.delete.Width = 80;
             // 
             // WMSedit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 533);
-            this.Controls.Add(this.dgvEdit);
+            this.ClientSize = new System.Drawing.Size(1226, 619);
+            this.Controls.Add(this.dgvInventory);
             this.Controls.Add(this.groupBox1);
+            this.IsMdiContainer = true;
+            this.MaximizeBox = false;
             this.Name = "WMSedit";
             this.Text = "修改和删除";
             this.Load += new System.EventHandler(this.WMSedit_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -238,8 +221,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvEdit;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn check;
+        private System.Windows.Forms.DataGridView dgvInventory;
         private System.Windows.Forms.DataGridViewTextBoxColumn productID;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
@@ -247,8 +229,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn supplier;
         private System.Windows.Forms.DataGridViewTextBoxColumn entry;
         private System.Windows.Forms.DataGridViewTextBoxColumn remarks;
-        private System.Windows.Forms.DataGridViewLinkColumn modify;
+        private System.Windows.Forms.DataGridViewLinkColumn edit;
         private System.Windows.Forms.DataGridViewLinkColumn delete;
-        private System.Windows.Forms.Button buttonDelete;
     }
 }

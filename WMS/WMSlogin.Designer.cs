@@ -86,7 +86,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(94, 272);
+            this.button1.Location = new System.Drawing.Point(113, 272);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 38);
             this.button1.TabIndex = 4;
@@ -152,6 +152,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(932, 533);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
             this.Name = "WMSlogin";
             this.Text = "仓库管理系统";
             this.Load += new System.EventHandler(this.WMSlogin_Load);

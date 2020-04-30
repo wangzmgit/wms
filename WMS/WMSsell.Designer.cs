@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textQuantity = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -70,14 +70,14 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1024, 85);
+            this.groupBox1.Size = new System.Drawing.Size(1262, 85);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查找";
             // 
             // textQuantity
             // 
-            this.textQuantity.Location = new System.Drawing.Point(440, 33);
+            this.textQuantity.Location = new System.Drawing.Point(495, 34);
             this.textQuantity.Multiline = true;
             this.textQuantity.Name = "textQuantity";
             this.textQuantity.Size = new System.Drawing.Size(137, 32);
@@ -87,7 +87,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(385, 45);
+            this.label2.Location = new System.Drawing.Point(440, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 20);
             this.label2.TabIndex = 4;
@@ -95,7 +95,7 @@
             // 
             // displayALL
             // 
-            this.displayALL.Location = new System.Drawing.Point(834, 33);
+            this.displayALL.Location = new System.Drawing.Point(889, 34);
             this.displayALL.Name = "displayALL";
             this.displayALL.Size = new System.Drawing.Size(122, 32);
             this.displayALL.TabIndex = 3;
@@ -105,7 +105,7 @@
             // 
             // buttonFind
             // 
-            this.buttonFind.Location = new System.Drawing.Point(654, 33);
+            this.buttonFind.Location = new System.Drawing.Point(709, 34);
             this.buttonFind.Name = "buttonFind";
             this.buttonFind.Size = new System.Drawing.Size(122, 32);
             this.buttonFind.TabIndex = 2;
@@ -115,7 +115,7 @@
             // 
             // textName
             // 
-            this.textName.Location = new System.Drawing.Point(114, 33);
+            this.textName.Location = new System.Drawing.Point(169, 34);
             this.textName.Multiline = true;
             this.textName.Name = "textName";
             this.textName.Size = new System.Drawing.Size(244, 32);
@@ -125,7 +125,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(19, 45);
+            this.label1.Location = new System.Drawing.Point(74, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 20);
             this.label1.TabIndex = 0;
@@ -145,7 +145,7 @@
             this.dgvInventory.Name = "dgvInventory";
             this.dgvInventory.ReadOnly = true;
             this.dgvInventory.RowTemplate.Height = 27;
-            this.dgvInventory.Size = new System.Drawing.Size(1024, 131);
+            this.dgvInventory.Size = new System.Drawing.Size(1262, 191);
             this.dgvInventory.TabIndex = 4;
             this.dgvInventory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventory_CellContentClick);
             // 
@@ -188,8 +188,8 @@
             // 
             // add
             // 
-            dataGridViewCellStyle5.NullValue = "添加";
-            this.add.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.NullValue = "添加";
+            this.add.DefaultCellStyle = dataGridViewCellStyle1;
             this.add.HeaderText = "添加";
             this.add.Name = "add";
             this.add.ReadOnly = true;
@@ -197,18 +197,17 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.dgvOrder);
-            this.groupBox2.Location = new System.Drawing.Point(0, 228);
+            this.groupBox2.Location = new System.Drawing.Point(0, 288);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1024, 360);
+            this.groupBox2.Size = new System.Drawing.Size(1262, 360);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "订单";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(825, 285);
+            this.button3.Location = new System.Drawing.Point(1014, 668);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(161, 53);
             this.button3.TabIndex = 6;
@@ -229,7 +228,7 @@
             this.dgvOrder.Name = "dgvOrder";
             this.dgvOrder.ReadOnly = true;
             this.dgvOrder.RowTemplate.Height = 27;
-            this.dgvOrder.Size = new System.Drawing.Size(1024, 242);
+            this.dgvOrder.Size = new System.Drawing.Size(1256, 301);
             this.dgvOrder.TabIndex = 5;
             this.dgvOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellContentClick);
             // 
@@ -238,6 +237,7 @@
             this.dataGridViewTextBoxColumn1.DataPropertyName = "productID";
             this.dataGridViewTextBoxColumn1.HeaderText = "产品ID";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Width = 80;
             // 
             // dataGridViewTextBoxColumn2
@@ -245,22 +245,25 @@
             this.dataGridViewTextBoxColumn2.DataPropertyName = "name";
             this.dataGridViewTextBoxColumn2.HeaderText = "产品名称";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // Quantity
             // 
             this.Quantity.HeaderText = "数量";
             this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
             // 
             // unit
             // 
             this.unit.DataPropertyName = "unit";
             this.unit.HeaderText = "单位";
             this.unit.Name = "unit";
+            this.unit.ReadOnly = true;
             // 
             // removeLine
             // 
-            dataGridViewCellStyle6.NullValue = "移除";
-            this.removeLine.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.NullValue = "移除";
+            this.removeLine.DefaultCellStyle = dataGridViewCellStyle2;
             this.removeLine.HeaderText = "移除";
             this.removeLine.Name = "removeLine";
             this.removeLine.ReadOnly = true;
@@ -270,10 +273,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 575);
+            this.ClientSize = new System.Drawing.Size(1262, 733);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvInventory);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
             this.Name = "WMSsell";
             this.Text = "销售";
             this.Load += new System.EventHandler(this.WMSsell_Load);

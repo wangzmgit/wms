@@ -105,8 +105,11 @@ namespace WMS
                     cfa.Save();
                 }
 
-                WMSHome wms = new WMSHome();
-                wms.Show();
+               // WMSHome wms = new WMSHome();
+                 //wms.Show();
+                this.Hide();
+                WMSnewHome newHome = new WMSnewHome();
+               newHome.Show();
                 this.Hide();
             }
         }

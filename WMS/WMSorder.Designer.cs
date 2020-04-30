@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textOrderNum = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvOrder = new System.Windows.Forms.DataGridView();
-            this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detail = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvOrder = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
             this.SuspendLayout();
@@ -95,6 +95,38 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "订单号";
             // 
+            // detail
+            // 
+            dataGridViewCellStyle1.NullValue = "详情";
+            this.detail.DefaultCellStyle = dataGridViewCellStyle1;
+            this.detail.HeaderText = "详情";
+            this.detail.Name = "detail";
+            this.detail.ReadOnly = true;
+            // 
+            // stock
+            // 
+            this.stock.DataPropertyName = "Createdate";
+            this.stock.HeaderText = "订单日期";
+            this.stock.Name = "stock";
+            this.stock.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.DataPropertyName = "orderNum";
+            this.name.FillWeight = 150F;
+            this.name.HeaderText = "订单号";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 135;
+            // 
+            // productID
+            // 
+            this.productID.DataPropertyName = "id";
+            this.productID.HeaderText = "订单ID";
+            this.productID.Name = "productID";
+            this.productID.ReadOnly = true;
+            this.productID.Width = 110;
+            // 
             // dgvOrder
             // 
             this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -110,38 +142,6 @@
             this.dgvOrder.Size = new System.Drawing.Size(972, 350);
             this.dgvOrder.TabIndex = 2;
             this.dgvOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellContentClick);
-            // 
-            // productID
-            // 
-            this.productID.DataPropertyName = "id";
-            this.productID.HeaderText = "订单ID";
-            this.productID.Name = "productID";
-            this.productID.ReadOnly = true;
-            this.productID.Width = 110;
-            // 
-            // name
-            // 
-            this.name.DataPropertyName = "orderNum";
-            this.name.FillWeight = 150F;
-            this.name.HeaderText = "订单号";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 135;
-            // 
-            // stock
-            // 
-            this.stock.DataPropertyName = "Createdate";
-            this.stock.HeaderText = "订单日期";
-            this.stock.Name = "stock";
-            this.stock.ReadOnly = true;
-            // 
-            // detail
-            // 
-            dataGridViewCellStyle3.NullValue = "详情";
-            this.detail.DefaultCellStyle = dataGridViewCellStyle3;
-            this.detail.HeaderText = "详情";
-            this.detail.Name = "detail";
-            this.detail.ReadOnly = true;
             // 
             // WMSorder
             // 
@@ -167,10 +167,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textOrderNum;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvOrder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stock;
         private System.Windows.Forms.DataGridViewLinkColumn detail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productID;
+        private System.Windows.Forms.DataGridView dgvOrder;
     }
 }

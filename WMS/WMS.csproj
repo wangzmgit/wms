@@ -71,12 +71,6 @@
     <Compile Include="WMSedit.Designer.cs">
       <DependentUpon>WMSedit.cs</DependentUpon>
     </Compile>
-    <Compile Include="WMSHome.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WMSHome.Designer.cs">
-      <DependentUpon>WMSHome.cs</DependentUpon>
-    </Compile>
     <Compile Include="WMSInventory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +90,12 @@
     </Compile>
     <Compile Include="WMSmodify.Designer.cs">
       <DependentUpon>WMSmodify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WMSnewHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WMSnewHome.Designer.cs">
+      <DependentUpon>WMSnewHome.cs</DependentUpon>
     </Compile>
     <Compile Include="WMSorder.cs">
       <SubType>Form</SubType>
@@ -124,9 +124,6 @@
     <EmbeddedResource Include="WMSedit.resx">
       <DependentUpon>WMSedit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WMSHome.resx">
-      <DependentUpon>WMSHome.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WMSInventory.resx">
       <DependentUpon>WMSInventory.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +141,9 @@
     </Compile>
     <EmbeddedResource Include="WMSmodify.resx">
       <DependentUpon>WMSmodify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WMSnewHome.resx">
+      <DependentUpon>WMSnewHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WMSorder.resx">
       <DependentUpon>WMSorder.cs</DependentUpon>

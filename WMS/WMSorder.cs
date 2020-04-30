@@ -54,11 +54,10 @@ namespace WMS
                 DataGridViewCell cell = dgvOrder.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 if (cell is DataGridViewLinkCell && cell.FormattedValue.ToString() == "详情")
                 {
-                    //打开修改窗口，传递ID
+                    //打开订单详情窗口，传递ID
                     int orderID = (int)row["id"];
                     string orderNum = row["orderNum"].ToString();
                     WMSdetails details = new WMSdetails(orderID,orderNum);
-                    details.MdiParent = this.ParentForm;
                     details.Show();
                 }
             }

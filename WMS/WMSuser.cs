@@ -13,6 +13,7 @@ namespace WMS
 {
     public partial class WMSuser : Form
     {
+        string key = "M01z0LTnpbARncm2kdwkFVXAWMBLgmZi";//加密秘钥
         public WMSuser()
         {
             InitializeComponent();
@@ -41,6 +42,7 @@ namespace WMS
                 return;
             }
             //比对数据
+            oldPwd = dataProcessing.Encrypt(oldPwd, key);
             string sql = "select count(1) from userInfo where UserName=@UserName and UserPwd=@UserPwd";
             SqlParameter[] paras =
 {
@@ -56,6 +58,7 @@ namespace WMS
             }
             else
             {
+                newPwd = dataProcessing.Encrypt(newPwd, key);
                 string sqlUpdate = "update userInfo set UserPwd=@newPwd where UserName=@userName";
                 SqlParameter[] parasUpdate =
                 {
@@ -131,6 +134,7 @@ namespace WMS
                 return;
             }
             //验证管理员密码
+            adminPwd = dataProcessing.Encrypt(adminPwd, key);
             string sql = "select count(1) from userInfo where UserName='admin' and UserPwd=@adminPwd";
             SqlParameter[] paras =
             {
@@ -155,6 +159,7 @@ namespace WMS
                 if (oCount == null || oCount == DBNull.Value || (int)oCount == 0)
                 {
                     //用户名不存在，进行添加
+                    addPwd = dataProcessing.Encrypt(addPwd, key);
                     string sqlAdd = "insert into userInfo (UserName,UserPwd) values (@userName,@userPwd)";
                     SqlParameter[] paraAdd =
                     {
