@@ -34,11 +34,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textOrderNum = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.detail = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvOrder = new System.Windows.Forms.DataGridView();
+            this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detail = new System.Windows.Forms.DataGridViewLinkColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
             this.SuspendLayout();
@@ -59,22 +60,32 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("华文细黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button2.Location = new System.Drawing.Point(793, 38);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(122, 32);
             this.button2.TabIndex = 3;
             this.button2.Text = "显示全部";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("华文细黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Location = new System.Drawing.Point(649, 38);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 32);
             this.button1.TabIndex = 2;
             this.button1.Text = "查找";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textOrderNum
@@ -88,27 +99,38 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(258, 50);
+            this.label1.Font = new System.Drawing.Font("华文细黑", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label1.Location = new System.Drawing.Point(253, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
+            this.label1.Size = new System.Drawing.Size(84, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "订单号";
             // 
-            // detail
+            // dgvOrder
             // 
-            dataGridViewCellStyle1.NullValue = "详情";
-            this.detail.DefaultCellStyle = dataGridViewCellStyle1;
-            this.detail.HeaderText = "详情";
-            this.detail.Name = "detail";
-            this.detail.ReadOnly = true;
+            this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productID,
+            this.name,
+            this.amount,
+            this.stock,
+            this.detail});
+            this.dgvOrder.Location = new System.Drawing.Point(0, 106);
+            this.dgvOrder.Name = "dgvOrder";
+            this.dgvOrder.ReadOnly = true;
+            this.dgvOrder.RowTemplate.Height = 27;
+            this.dgvOrder.Size = new System.Drawing.Size(972, 350);
+            this.dgvOrder.TabIndex = 2;
+            this.dgvOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellContentClick);
             // 
-            // stock
+            // productID
             // 
-            this.stock.DataPropertyName = "Createdate";
-            this.stock.HeaderText = "订单日期";
-            this.stock.Name = "stock";
-            this.stock.ReadOnly = true;
+            this.productID.DataPropertyName = "id";
+            this.productID.HeaderText = "订单ID";
+            this.productID.Name = "productID";
+            this.productID.ReadOnly = true;
+            this.productID.Width = 110;
             // 
             // name
             // 
@@ -119,29 +141,27 @@
             this.name.ReadOnly = true;
             this.name.Width = 135;
             // 
-            // productID
+            // amount
             // 
-            this.productID.DataPropertyName = "id";
-            this.productID.HeaderText = "订单ID";
-            this.productID.Name = "productID";
-            this.productID.ReadOnly = true;
-            this.productID.Width = 110;
+            this.amount.DataPropertyName = "amount";
+            this.amount.HeaderText = "金额";
+            this.amount.Name = "amount";
+            this.amount.ReadOnly = true;
             // 
-            // dgvOrder
+            // stock
             // 
-            this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productID,
-            this.name,
-            this.stock,
-            this.detail});
-            this.dgvOrder.Location = new System.Drawing.Point(0, 106);
-            this.dgvOrder.Name = "dgvOrder";
-            this.dgvOrder.ReadOnly = true;
-            this.dgvOrder.RowTemplate.Height = 27;
-            this.dgvOrder.Size = new System.Drawing.Size(972, 350);
-            this.dgvOrder.TabIndex = 2;
-            this.dgvOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellContentClick);
+            this.stock.DataPropertyName = "Createdate";
+            this.stock.HeaderText = "订单日期";
+            this.stock.Name = "stock";
+            this.stock.ReadOnly = true;
+            // 
+            // detail
+            // 
+            dataGridViewCellStyle1.NullValue = "详情";
+            this.detail.DefaultCellStyle = dataGridViewCellStyle1;
+            this.detail.HeaderText = "详情";
+            this.detail.Name = "detail";
+            this.detail.ReadOnly = true;
             // 
             // WMSorder
             // 
@@ -167,10 +187,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textOrderNum;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewLinkColumn detail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productID;
         private System.Windows.Forms.DataGridView dgvOrder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stock;
+        private System.Windows.Forms.DataGridViewLinkColumn detail;
     }
 }

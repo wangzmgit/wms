@@ -28,7 +28,6 @@ namespace WMS
             //点击其他按钮时，关闭编辑菜单
             if (panel2.Visible == true)
                 panel2.Visible = false;
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -117,5 +116,33 @@ namespace WMS
             order.Show();
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+            hitOrterButton();
+            panelWindow.Controls.Clear();//移除所有控件
+            WMSsetting setting = new WMSsetting();
+            setting.TopLevel = false;
+            setting.Dock = System.Windows.Forms.DockStyle.Fill;
+            setting.FormBorderStyle = FormBorderStyle.None;
+            panelWindow.Controls.Add(setting);
+            setting.Show();
+        }
+
+        private void buttonHome_Click(object sender, EventArgs e)
+        {
+            hitOrterButton();
+            panelWindow.Controls.Clear();//移除所有控件
+            WMSinfoPage infoPage = new WMSinfoPage();
+            infoPage.TopLevel = false;
+            infoPage.Dock = System.Windows.Forms.DockStyle.Fill;
+            infoPage.FormBorderStyle = FormBorderStyle.None;
+            panelWindow.Controls.Add(infoPage);
+            infoPage.Show();
+        }
+
+        private void WMSnewHome_Load(object sender, EventArgs e)
+        {
+            buttonHome_Click(sender, e);
+        }
     }
 }

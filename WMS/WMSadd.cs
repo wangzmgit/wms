@@ -31,6 +31,7 @@ namespace WMS
             string supplier = textSupplier.Text.Trim();
             string reporter = textReporter.Text.Trim();
             string remarks = textRemarks.Text.Trim();
+            string price = textPrice.Text.Trim();
             //判断是否为空
             if(string.IsNullOrEmpty(name))
             {
@@ -47,6 +48,11 @@ namespace WMS
                 MessageBox.Show("单位不能为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (string.IsNullOrEmpty(unit))
+            {
+                MessageBox.Show("售价不能为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             //判断已经存在
             string sqlExists = "select count(1) from Inventory where name=@name";
             SqlParameter[] para =
@@ -59,12 +65,18 @@ namespace WMS
             {
                 //不存在数据，进行添加
                 int intStock;
+                float floatPrice;
                 if(!int.TryParse(stock, out intStock))
                 {
                     MessageBox.Show("数量输入有误", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                string sqlAdd = "insert into Inventory (name,stock,unit,supplier,entry,remarks) values (@name,@stock,@unit,@supplier,@entry,@remarks)";
+                if(!float.TryParse(price,out floatPrice))
+                {
+                    MessageBox.Show("售价输入有误", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                string sqlAdd = "insert into Inventory (name,stock,unit,supplier,entry,remarks,price) values (@name,@stock,@unit,@supplier,@entry,@remarks,@price)";
                 SqlParameter[] paras =
                 {
                     new SqlParameter("@name",name),
@@ -72,7 +84,8 @@ namespace WMS
                     new SqlParameter("@unit",unit),
                     new SqlParameter("@supplier",supplier),
                     new SqlParameter("@entry",reporter),
-                    new SqlParameter("@remarks",remarks)
+                    new SqlParameter("@remarks",remarks),
+                    new SqlParameter("@price",floatPrice)
                 };
                 int count = sqlHelper.ExecuteNonQuery(sqlAdd,paras);
                 if(count>0)

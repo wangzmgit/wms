@@ -71,6 +71,12 @@
     <Compile Include="WMSedit.Designer.cs">
       <DependentUpon>WMSedit.cs</DependentUpon>
     </Compile>
+    <Compile Include="WMSinfoPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WMSinfoPage.Designer.cs">
+      <DependentUpon>WMSinfoPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="WMSInventory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,12 @@
     <Compile Include="WMSsell.Designer.cs">
       <DependentUpon>WMSsell.cs</DependentUpon>
     </Compile>
+    <Compile Include="WMSsetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WMSsetting.Designer.cs">
+      <DependentUpon>WMSsetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="WMSuser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WMSedit.resx">
       <DependentUpon>WMSedit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WMSinfoPage.resx">
+      <DependentUpon>WMSinfoPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WMSInventory.resx">
       <DependentUpon>WMSInventory.cs</DependentUpon>
@@ -150,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WMSsell.resx">
       <DependentUpon>WMSsell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WMSsetting.resx">
+      <DependentUpon>WMSsetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WMSuser.resx">
       <DependentUpon>WMSuser.cs</DependentUpon>

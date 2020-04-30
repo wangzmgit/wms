@@ -42,8 +42,10 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.panelWindow = new System.Windows.Forms.Panel();
+            this.title = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panelTitle.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -78,6 +80,7 @@
             this.button7.Text = "设置与帮助";
             this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
@@ -228,6 +231,7 @@
             this.buttonHome.Text = "首页";
             this.buttonHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonHome.UseVisualStyleBackColor = false;
+            this.buttonHome.Click += new System.EventHandler(this.buttonHome_Click);
             // 
             // panelLogo
             // 
@@ -240,6 +244,7 @@
             // panelTitle
             // 
             this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
+            this.panelTitle.Controls.Add(this.title);
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Location = new System.Drawing.Point(210, 0);
             this.panelTitle.Name = "panelTitle";
@@ -249,10 +254,22 @@
             // panelWindow
             // 
             this.panelWindow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelWindow.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.panelWindow.Location = new System.Drawing.Point(210, 77);
             this.panelWindow.Name = "panelWindow";
             this.panelWindow.Size = new System.Drawing.Size(1112, 576);
             this.panelWindow.TabIndex = 2;
+            // 
+            // title
+            // 
+            this.title.AutoSize = true;
+            this.title.Font = new System.Drawing.Font("华文细黑", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.title.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.title.Location = new System.Drawing.Point(73, 27);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(156, 26);
+            this.title.TabIndex = 0;
+            this.title.Text = "仓库管理系统";
             // 
             // WMSnewHome
             // 
@@ -266,8 +283,11 @@
             this.Name = "WMSnewHome";
             this.Text = "WMSnewHome";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WMSnewHome_FormClosing);
+            this.Load += new System.EventHandler(this.WMSnewHome_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panelTitle.ResumeLayout(false);
+            this.panelTitle.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -288,5 +308,6 @@
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Panel panelTitle;
         private System.Windows.Forms.Panel panelWindow;
+        private System.Windows.Forms.Label title;
     }
 }

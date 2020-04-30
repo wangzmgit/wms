@@ -20,7 +20,8 @@ namespace WMS
 
         private void WMSorder_Load(object sender, EventArgs e)
         {
-            string sql = "select id,orderNum,Createdate from [order]";
+            dgvOrder.ForeColor = Color.Black;
+            string sql = "select id,amount,orderNum,Createdate from [order]";
             DataTable dtGradeList = sqlHelper.GetDataTable(sql);
             dgvOrder.DataSource = dtGradeList;
             dgvOrder.AllowUserToAddRows = false;//去除空行
@@ -29,7 +30,7 @@ namespace WMS
         private void button1_Click(object sender, EventArgs e)
         {
             string orderNum = textOrderNum.Text.Trim();
-            string sql = "select id,orderNum,Createdate from [order] where orderNum Like @orderNum";
+            string sql = "select id,orderNum,amount,Createdate from [order] where orderNum Like @orderNum";
             if (!string.IsNullOrEmpty(orderNum))
             {
                 SqlParameter[] paras =

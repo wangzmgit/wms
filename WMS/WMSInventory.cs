@@ -20,7 +20,8 @@ namespace WMS
 
         private void WMSInventory_Load(object sender, EventArgs e)
         {
-            string sql = "select productID,name,stock,unit,supplier,entry,remarks from Inventory";
+            dgvInventory.ForeColor = Color.Black;
+            string sql = "select productID,name,stock,unit,price,supplier,entry,remarks from Inventory";
             DataTable dtGradeList = sqlHelper.GetDataTable(sql);
             dgvInventory.DataSource = dtGradeList;
             dgvInventory.AllowUserToAddRows = false;//去除空行
@@ -34,7 +35,7 @@ namespace WMS
         private void button1_Click(object sender, EventArgs e)
         {
             string name = textName.Text.Trim();
-            string sql = "select productID,name,stock,unit,supplier,entry,remarks from Inventory where name Like @name";
+            string sql = "select productID,name,stock,unit,price,supplier,entry,remarks from Inventory where name Like @name";
             if(!string.IsNullOrEmpty(name))
             {
                 SqlParameter[] paras =

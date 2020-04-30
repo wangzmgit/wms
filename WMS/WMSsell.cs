@@ -13,6 +13,7 @@ namespace WMS
 {
     public partial class WMSsell : Form
     {
+        float amount = 0;//总金额
         public WMSsell()
         {
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace WMS
         private void displayALL_Click(object sender, EventArgs e)
         {
             //显示全部信息
-            string sql = "select productID,name,stock,unit,remarks from Inventory";
+            string sql = "select productID,name,stock,unit,price,remarks from Inventory";
             DataTable dtGradeList = sqlHelper.GetDataTable(sql);
             dgvInventory.DataSource = dtGradeList;
         }
@@ -37,7 +38,7 @@ namespace WMS
             //查找
             string name = textName.Text.Trim();
             textName.Text = "";
-            string sql = "select productID,name,stock,unit,remarks from Inventory where name Like @name";
+            string sql = "select productID,name,stock,unit,price,remarks from Inventory where name Like @name";
             if (!string.IsNullOrEmpty(name))
             {
                 SqlParameter[] paras =
@@ -81,7 +82,12 @@ namespace WMS
                     dgvOrder.Rows[index].Cells[1].Value = row["name"].ToString();
                     dgvOrder.Rows[index].Cells[2].Value = quantity;
                     dgvOrder.Rows[index].Cells[3].Value = row["unit"].ToString();
+                    dgvOrder.Rows[index].Cells[4].Value = row["price"].ToString();
+                    //更新金额
+                    amount += float.Parse(row["price"].ToString())*int.Parse(quantity);//单价乘数量
+                    label4.Text = amount.ToString();
                     textQuantity.Text = "";
+                    
                 }
             }
         }
@@ -96,6 +102,8 @@ namespace WMS
                 {
                     //对选择的进行移除
                     DataGridViewRow rowRemove = dgvOrder.Rows[e.RowIndex];
+                    amount -= float.Parse(rowRemove.Cells[4].Value.ToString()) * int.Parse(rowRemove.Cells[2].Value.ToString());
+                    label4.Text = amount.ToString();
                     dgvOrder.Rows.Remove(rowRemove);
                 }
             }
@@ -114,10 +122,11 @@ namespace WMS
                 quantityArr[i] = int.Parse(dgvOrder.Rows[i].Cells[2].Value.ToString());
             }
             //写入订单表，获取订单ID
-            string sql = "insert into [order](orderNum) values(@orderNum);select @@identity";
+            string sql = "insert into [order](orderNum,amount) values(@orderNum,@amount);select @@identity";
             SqlParameter[] paras =
             {
                     new SqlParameter("@orderNum",orderNum),
+                    new SqlParameter("@amount",amount)
             };
             string key = sqlHelper.insertDate(sql, paras);//订单的ID
             if (!string.IsNullOrEmpty(key))
@@ -146,13 +155,26 @@ namespace WMS
                     {
                         //获取旧库存
                         int oldStock =int.Parse( reader["stock"].ToString());
+                        int oldSales=0;//销量
+                        //获取旧的销量
+                        string sqlSales = "select sales from Inventory where productID = @productID";
+                        SqlParameter paraSales = new SqlParameter("@productID", IDarr[j]);
+                        SqlDataReader read = sqlHelper.ExecutReader(sqlSales, paraSales);
+                        if(read.Read())
+                        {
+                            oldSales = int.Parse(read["sales"].ToString());
+                        }
+                        read.Close();
                         //旧库存减去数量
                         oldStock -= int.Parse(quantityArr[j].ToString());
+                        //增加销量
+                        oldSales+= int.Parse(quantityArr[j].ToString());
                         //重新写入
-                        string sqlUpdate = "update Inventory set stock = @stock where productID = @productID";
+                        string sqlUpdate = "update Inventory set stock = @stock,sales=@sales where productID = @productID";
                         SqlParameter[] parasUpdate =
                         {
                              new SqlParameter("@stock",oldStock),
+                             new SqlParameter("@sales",oldSales),
                              new SqlParameter("@productID",IDarr[j])
                         };
                         int updataReturn = sqlHelper.ExecuteNonQuery(sqlUpdate, parasUpdate);
