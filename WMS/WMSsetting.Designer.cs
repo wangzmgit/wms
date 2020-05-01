@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.buttonSave = new System.Windows.Forms.Button();
             this.autoLogin = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -54,6 +54,25 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "设置";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(393, 38);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(207, 32);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.Text = "这个功能暂时还不可用";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("华文细黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label2.Location = new System.Drawing.Point(257, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(130, 21);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "低库存预警值";
             // 
             // buttonSave
             // 
@@ -109,28 +128,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.label1.Location = new System.Drawing.Point(35, 53);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1017, 42);
+            this.label1.Size = new System.Drawing.Size(960, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "感谢使用本程序，这个程序目前还在开发阶段，存在着大量bug，好多功能还未能实现。这个程序将长期更新，后续将会\r\n不断完善。";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("华文细黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label2.Location = new System.Drawing.Point(257, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 21);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "低库存预警值";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(393, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 32);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "这个功能暂时还不可用";
+            this.label1.Text = "感谢使用本程序，这个程序目前还在开发阶段，存在着大量bug，好多功能还未能实现。这个程序将长期更新，后\r\n续将会不断完善。";
             // 
             // WMSsetting
             // 

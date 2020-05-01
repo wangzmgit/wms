@@ -23,7 +23,7 @@ namespace WMS
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddRange(paras);
                 conn.Open();
-                 o = cmd.ExecuteScalar();//执行查询，返回结果第一行第一列的值
+                o = cmd.ExecuteScalar();//执行查询，返回结果第一行第一列的值
             }
             return o;
         }
@@ -103,6 +103,5 @@ namespace WMS
             }
             return key;
         }
-
     }
 }

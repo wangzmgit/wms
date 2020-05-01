@@ -20,11 +20,7 @@ namespace WMS
 
         private void WMSorder_Load(object sender, EventArgs e)
         {
-            dgvOrder.ForeColor = Color.Black;
-            string sql = "select id,amount,orderNum,Createdate from [order]";
-            DataTable dtGradeList = sqlHelper.GetDataTable(sql);
-            dgvOrder.DataSource = dtGradeList;
-            dgvOrder.AllowUserToAddRows = false;//去除空行
+            dispalyAll();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,7 +40,7 @@ namespace WMS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            WMSorder_Load(sender, e);
+            dispalyAll();
         }
 
         private void dgvOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -62,6 +58,14 @@ namespace WMS
                     details.Show();
                 }
             }
+        }
+        private void dispalyAll()
+        {
+            dgvOrder.ForeColor = Color.Black;
+            string sql = "select id,orderNum,amount,Createdate from [order]";
+            DataTable dtGradeList = sqlHelper.GetDataTable(sql);
+            dgvOrder.DataSource = dtGradeList;
+            dgvOrder.AllowUserToAddRows = false;//去除空行
         }
     }
 }

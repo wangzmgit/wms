@@ -40,6 +40,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,11 +72,11 @@
     <Compile Include="WMSedit.Designer.cs">
       <DependentUpon>WMSedit.cs</DependentUpon>
     </Compile>
-    <Compile Include="WMSinfoPage.cs">
+    <Compile Include="InfoPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WMSinfoPage.Designer.cs">
-      <DependentUpon>WMSinfoPage.cs</DependentUpon>
+    <Compile Include="InfoPage.Designer.cs">
+      <DependentUpon>InfoPage.cs</DependentUpon>
     </Compile>
     <Compile Include="WMSInventory.cs">
       <SubType>Form</SubType>
@@ -136,8 +137,8 @@
     <EmbeddedResource Include="WMSedit.resx">
       <DependentUpon>WMSedit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WMSinfoPage.resx">
-      <DependentUpon>WMSinfoPage.cs</DependentUpon>
+    <EmbeddedResource Include="InfoPage.resx">
+      <DependentUpon>InfoPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WMSInventory.resx">
       <DependentUpon>WMSInventory.cs</DependentUpon>

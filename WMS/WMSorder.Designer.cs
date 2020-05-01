@@ -53,7 +53,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(972, 101);
+            this.groupBox1.Size = new System.Drawing.Size(1094, 101);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查找";
@@ -116,11 +116,11 @@
             this.amount,
             this.stock,
             this.detail});
-            this.dgvOrder.Location = new System.Drawing.Point(0, 106);
+            this.dgvOrder.Location = new System.Drawing.Point(0, 107);
             this.dgvOrder.Name = "dgvOrder";
             this.dgvOrder.ReadOnly = true;
             this.dgvOrder.RowTemplate.Height = 27;
-            this.dgvOrder.Size = new System.Drawing.Size(972, 350);
+            this.dgvOrder.Size = new System.Drawing.Size(1094, 425);
             this.dgvOrder.TabIndex = 2;
             this.dgvOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellContentClick);
             // 
@@ -167,7 +167,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 459);
+            this.ClientSize = new System.Drawing.Size(1094, 529);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvOrder);
             this.Name = "WMSorder";
