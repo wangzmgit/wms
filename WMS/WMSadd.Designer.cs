@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textPrice = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.comboBoxUnit = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textRemarks = new System.Windows.Forms.TextBox();
@@ -42,13 +44,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textPrice = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.buttonImport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonImport);
             this.panel1.Controls.Add(this.textPrice);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.comboBoxUnit);
@@ -66,8 +68,28 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(26, 22);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(857, 441);
+            this.panel1.Size = new System.Drawing.Size(973, 501);
             this.panel1.TabIndex = 0;
+            // 
+            // textPrice
+            // 
+            this.textPrice.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textPrice.Location = new System.Drawing.Point(723, 109);
+            this.textPrice.Multiline = true;
+            this.textPrice.Name = "textPrice";
+            this.textPrice.Size = new System.Drawing.Size(120, 30);
+            this.textPrice.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label7.Location = new System.Drawing.Point(648, 119);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 20);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "售价：";
             // 
             // comboBoxUnit
             // 
@@ -78,7 +100,7 @@
             "瓶",
             "箱",
             "个"});
-            this.comboBoxUnit.Location = new System.Drawing.Point(405, 112);
+            this.comboBoxUnit.Location = new System.Drawing.Point(431, 112);
             this.comboBoxUnit.Name = "comboBoxUnit";
             this.comboBoxUnit.Size = new System.Drawing.Size(120, 28);
             this.comboBoxUnit.TabIndex = 12;
@@ -88,9 +110,9 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("华文细黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Font = new System.Drawing.Font("华文细黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(700, 310);
+            this.button1.Location = new System.Drawing.Point(673, 414);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 51);
             this.button1.TabIndex = 11;
@@ -104,16 +126,16 @@
             this.textRemarks.Location = new System.Drawing.Point(49, 266);
             this.textRemarks.Multiline = true;
             this.textRemarks.Name = "textRemarks";
-            this.textRemarks.Size = new System.Drawing.Size(587, 110);
+            this.textRemarks.Size = new System.Drawing.Size(794, 110);
             this.textRemarks.TabIndex = 10;
             // 
             // textReporter
             // 
             this.textReporter.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textReporter.Location = new System.Drawing.Point(531, 191);
+            this.textReporter.Location = new System.Drawing.Point(557, 191);
             this.textReporter.Multiline = true;
             this.textReporter.Name = "textReporter";
-            this.textReporter.Size = new System.Drawing.Size(158, 30);
+            this.textReporter.Size = new System.Drawing.Size(256, 30);
             this.textReporter.TabIndex = 9;
             // 
             // textSupplier
@@ -122,7 +144,7 @@
             this.textSupplier.Location = new System.Drawing.Point(148, 190);
             this.textSupplier.Multiline = true;
             this.textSupplier.Name = "textSupplier";
-            this.textSupplier.Size = new System.Drawing.Size(182, 30);
+            this.textSupplier.Size = new System.Drawing.Size(217, 30);
             this.textSupplier.TabIndex = 8;
             // 
             // textStock
@@ -159,7 +181,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label5.Location = new System.Drawing.Point(416, 200);
+            this.label5.Location = new System.Drawing.Point(442, 200);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(109, 20);
             this.label5.TabIndex = 4;
@@ -182,7 +204,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label3.Location = new System.Drawing.Point(328, 119);
+            this.label3.Location = new System.Drawing.Point(354, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 20);
             this.label3.TabIndex = 2;
@@ -210,34 +232,29 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "产品名称：";
             // 
-            // textPrice
+            // buttonImport
             // 
-            this.textPrice.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textPrice.Location = new System.Drawing.Point(642, 109);
-            this.textPrice.Multiline = true;
-            this.textPrice.Name = "textPrice";
-            this.textPrice.Size = new System.Drawing.Size(120, 30);
-            this.textPrice.TabIndex = 14;
+            this.buttonImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
+            this.buttonImport.FlatAppearance.BorderSize = 0;
+            this.buttonImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonImport.Font = new System.Drawing.Font("华文细黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonImport.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonImport.Location = new System.Drawing.Point(502, 414);
+            this.buttonImport.Name = "buttonImport";
+            this.buttonImport.Size = new System.Drawing.Size(125, 51);
+            this.buttonImport.TabIndex = 15;
+            this.buttonImport.Text = "批量导入";
+            this.buttonImport.UseVisualStyleBackColor = false;
+            this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label7.Location = new System.Drawing.Point(567, 119);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 20);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "售价：";
-            // 
-            // WMSadd
+            // add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(907, 491);
+            this.ClientSize = new System.Drawing.Size(1040, 548);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
-            this.Name = "WMSadd";
+            this.Name = "add";
             this.Text = "入库";
             this.Load += new System.EventHandler(this.WMSadd_Load);
             this.panel1.ResumeLayout(false);
@@ -264,5 +281,6 @@
         private System.Windows.Forms.ComboBox comboBoxUnit;
         private System.Windows.Forms.TextBox textPrice;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button buttonImport;
     }
 }

@@ -20,11 +20,7 @@ namespace WMS
 
         private void WMSInventory_Load(object sender, EventArgs e)
         {
-            dgvInventory.ForeColor = Color.Black;
-            string sql = "select productID,name,stock,unit,price,supplier,entry,remarks from Inventory";
-            DataTable dtGradeList = sqlHelper.GetDataTable(sql);
-            dgvInventory.DataSource = dtGradeList;
-            dgvInventory.AllowUserToAddRows = false;//去除空行
+            dispalyAll();
         }
 
         /// <summary>
@@ -49,7 +45,17 @@ namespace WMS
         //显示全部按钮 
         private void button2_Click(object sender, EventArgs e)
         {
-            WMSInventory_Load(sender,e);
+            dispalyAll();
+        }
+
+        //显示全部
+        private void dispalyAll()
+        {
+            dgvInventory.ForeColor = Color.Black;
+            string sql = "select productID,name,stock,unit,price,supplier,entry,remarks from Inventory";
+            DataTable dtGradeList = sqlHelper.GetDataTable(sql);
+            dgvInventory.DataSource = dtGradeList;
+            dgvInventory.AllowUserToAddRows = false;//去除空行
         }
     }
 }

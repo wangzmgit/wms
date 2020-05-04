@@ -1,6 +1,6 @@
 ﻿namespace WMS
 {
-    partial class WMSdetails
+    partial class WMSorderDetails
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,7 @@
             this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
             this.SuspendLayout();
@@ -45,7 +46,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(-2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(801, 109);
+            this.groupBox1.Size = new System.Drawing.Size(658, 109);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "订单详情";
@@ -77,7 +78,8 @@
             this.dgvOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.productID,
             this.name,
-            this.stock});
+            this.stock,
+            this.price});
             this.dgvOrder.Location = new System.Drawing.Point(-2, 117);
             this.dgvOrder.Name = "dgvOrder";
             this.dgvOrder.ReadOnly = true;
@@ -109,7 +111,14 @@
             this.stock.Name = "stock";
             this.stock.ReadOnly = true;
             // 
-            // WMSdetails
+            // price
+            // 
+            this.price.DataPropertyName = "price";
+            this.price.HeaderText = "单价";
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            // 
+            // orderDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,7 +126,7 @@
             this.Controls.Add(this.dgvOrder);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
-            this.Name = "WMSdetails";
+            this.Name = "orderDetails";
             this.Text = "订单详情";
             this.Load += new System.EventHandler(this.WMSdetails_Load);
             this.groupBox1.ResumeLayout(false);
@@ -135,5 +144,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn productID;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
     }
 }

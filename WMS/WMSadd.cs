@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
@@ -107,7 +100,13 @@ namespace WMS
 
         private void WMSadd_Load(object sender, EventArgs e)
         {
-            this.comboBoxUnit.SelectedIndex = 0;
+            comboBoxUnit.SelectedIndex = 0;
+        }
+
+        private void buttonImport_Click(object sender, EventArgs e)
+        {
+            WMSbatchImport import = new WMSbatchImport();
+            import.Show();
         }
     }
 }

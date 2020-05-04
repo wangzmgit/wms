@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
@@ -85,13 +81,14 @@ namespace WMS
             }
         }
         /// <summary>
-        /// 插入数据，返回主键id
+        /// 操作数据库，返回一个值
         /// </summary>
         /// <param name="sql"></param>
         /// <param name="paras"></param>
         /// <returns></returns>
         public static string insertDate(string sql,params SqlParameter[] paras)
         {
+            //命名错误，可以插入，也可以查找
             string key = null;
             using (SqlConnection conn = new SqlConnection(connString))
             {

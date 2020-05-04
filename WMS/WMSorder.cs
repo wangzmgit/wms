@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WMS
@@ -54,7 +49,7 @@ namespace WMS
                     //打开订单详情窗口，传递ID
                     int orderID = (int)row["id"];
                     string orderNum = row["orderNum"].ToString();
-                    WMSdetails details = new WMSdetails(orderID,orderNum);
+                    WMSorderDetails details = new WMSorderDetails(orderID,orderNum);
                     details.Show();
                 }
             }

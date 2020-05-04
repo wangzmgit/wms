@@ -132,7 +132,7 @@ namespace WMS
         {
             hitOrterButton();
             panelWindow.Controls.Clear();//移除所有控件
-            InfoPage infoPage = new InfoPage();
+            WMSInfoPage infoPage = new WMSInfoPage();
             infoPage.TopLevel = false;
             infoPage.Dock = System.Windows.Forms.DockStyle.Fill;
             infoPage.FormBorderStyle = FormBorderStyle.None;

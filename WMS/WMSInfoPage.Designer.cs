@@ -1,6 +1,6 @@
 ﻿namespace WMS
 {
-    partial class InfoPage
+    partial class WMSInfoPage
     {
         /// <summary>
         /// Required designer variable.

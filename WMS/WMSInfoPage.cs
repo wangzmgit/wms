@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace WMS
 {
-    public partial class InfoPage : Form
+    public partial class WMSInfoPage : Form
     {
-        public InfoPage()
+        public WMSInfoPage()
         {
             InitializeComponent();
         }

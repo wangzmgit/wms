@@ -33,13 +33,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CSkin">
-      <HintPath>C:\Users\13082\Desktop\CSkin.dll</HintPath>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WMSbatchImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WMSbatchImport.Designer.cs">
+      <DependentUpon>WMSbatchImport.cs</DependentUpon>
+    </Compile>
     <Compile Include="dataProcessing.cs" />
     <Compile Include="sqlHelper.cs" />
     <Compile Include="WMSadd.cs">
@@ -60,11 +72,11 @@
     <Compile Include="WMSadd.Designer.cs">
       <DependentUpon>WMSadd.cs</DependentUpon>
     </Compile>
-    <Compile Include="WMSdetails.cs">
+    <Compile Include="WMSorderDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WMSdetails.Designer.cs">
-      <DependentUpon>WMSdetails.cs</DependentUpon>
+    <Compile Include="WMSorderDetails.Designer.cs">
+      <DependentUpon>WMSorderDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="WMSedit.cs">
       <SubType>Form</SubType>
@@ -72,11 +84,11 @@
     <Compile Include="WMSedit.Designer.cs">
       <DependentUpon>WMSedit.cs</DependentUpon>
     </Compile>
-    <Compile Include="InfoPage.cs">
+    <Compile Include="WMSInfoPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InfoPage.Designer.cs">
-      <DependentUpon>InfoPage.cs</DependentUpon>
+    <Compile Include="WMSInfoPage.Designer.cs">
+      <DependentUpon>WMSInfoPage.cs</DependentUpon>
     </Compile>
     <Compile Include="WMSInventory.cs">
       <SubType>Form</SubType>
@@ -131,14 +143,17 @@
     <EmbeddedResource Include="WMSadd.resx">
       <DependentUpon>WMSadd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WMSdetails.resx">
-      <DependentUpon>WMSdetails.cs</DependentUpon>
+    <EmbeddedResource Include="WMSbatchImport.resx">
+      <DependentUpon>WMSbatchImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WMSorderDetails.resx">
+      <DependentUpon>WMSorderDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WMSedit.resx">
       <DependentUpon>WMSedit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InfoPage.resx">
-      <DependentUpon>InfoPage.cs</DependentUpon>
+    <EmbeddedResource Include="WMSInfoPage.resx">
+      <DependentUpon>WMSInfoPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WMSInventory.resx">
       <DependentUpon>WMSInventory.cs</DependentUpon>
@@ -173,6 +188,7 @@
     <EmbeddedResource Include="WMSuser.resx">
       <DependentUpon>WMSuser.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
