@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WMS
@@ -41,16 +35,26 @@ namespace WMS
                 userNameText.Text = ConfigurationManager.AppSettings["name"];
                 checkBox1.Checked = true;
             }
+
+            if(ConfigurationManager.AppSettings["autoLogin"].Equals("true"))
+            {
+                //这个功能有bug，暂时写不出来
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            login();
+        }
+
+        private void login()
         {
             Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             //获取用户信息
             string uName = userNameText.Text.Trim();
             string uPwd = passwordText.Text.Trim();
             //判断是否为空
-            if(string.IsNullOrEmpty(uName))
+            if (string.IsNullOrEmpty(uName))
             {
                 MessageBox.Show("请输入账号");
                 userNameText.Focus();
@@ -73,14 +77,14 @@ namespace WMS
              };
             sqlHelper helper = new sqlHelper();
             object o = helper.ExecuteScalar(sql, paras);
-            if (o==null||o==DBNull.Value||((int)o)==0)
+            if (o == null || o == DBNull.Value || ((int)o) == 0)
             {
                 MessageBox.Show("账户或密码有误");
                 return;
             }
             else
             {
-                if(checkBox1.Checked&&!checkBox2.Checked)
+                if (checkBox1.Checked && !checkBox2.Checked)
                 {
                     cfa.AppSettings.Settings["rememberMe"].Value = "true";
                     cfa.AppSettings.Settings["rememberPwd"].Value = "false";
@@ -128,7 +132,5 @@ namespace WMS
                 checkBox2.Checked = false;
             }
         }
-
-
     }
 }

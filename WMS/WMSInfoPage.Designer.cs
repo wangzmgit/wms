@@ -44,6 +44,7 @@
             this.labelOrder = new System.Windows.Forms.Label();
             this.labelOrderTD = new System.Windows.Forms.Label();
             this.labelQuantity = new System.Windows.Forms.Label();
+            this.buttonBackUp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStock)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -210,11 +211,26 @@
             this.labelQuantity.TabIndex = 6;
             this.labelQuantity.Text = "产品数量";
             // 
-            // InfoPage
+            // buttonBackUp
+            // 
+            this.buttonBackUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
+            this.buttonBackUp.FlatAppearance.BorderSize = 0;
+            this.buttonBackUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBackUp.Font = new System.Drawing.Font("华文细黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonBackUp.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonBackUp.Location = new System.Drawing.Point(778, 59);
+            this.buttonBackUp.Name = "buttonBackUp";
+            this.buttonBackUp.Size = new System.Drawing.Size(136, 43);
+            this.buttonBackUp.TabIndex = 9;
+            this.buttonBackUp.Text = "备份数据库";
+            this.buttonBackUp.UseVisualStyleBackColor = false;
+            // 
+            // WMSInfoPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 574);
+            this.Controls.Add(this.buttonBackUp);
             this.Controls.Add(this.labelOrder);
             this.Controls.Add(this.labelOrderTD);
             this.Controls.Add(this.labelQuantity);
@@ -224,7 +240,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.Name = "InfoPage";
+            this.Name = "WMSInfoPage";
             this.Text = "WMSinfoPage";
             this.Load += new System.EventHandler(this.WMSinfoPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStock)).EndInit();
@@ -254,5 +270,6 @@
         private System.Windows.Forms.Label labelOrder;
         private System.Windows.Forms.Label labelOrderTD;
         private System.Windows.Forms.Label labelQuantity;
+        private System.Windows.Forms.Button buttonBackUp;
     }
 }

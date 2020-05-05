@@ -30,7 +30,7 @@ namespace WMS
             string sql = "select productID,name,stock from Inventory where stock < @stock";
             SqlParameter[] paras =
             {
-                    new SqlParameter("@stock",20)
+                new SqlParameter("@stock",20)
             };
             DataTable dataTable = sqlHelper.GetDataTable(sql, paras);
             dgvStock.DataSource = dataTable;
@@ -51,6 +51,7 @@ namespace WMS
         
         private void updateQuantiy()
         {
+            //更新产品数量
             string sql = "select count(productID) from Inventory where 1=1";
             SqlParameter[] paras ={ };
             string quantity = sqlHelper.insertDate(sql, paras);
@@ -59,6 +60,7 @@ namespace WMS
 
         private void updateTodayOrder()
         {
+            //更新当日订单数量
             string sql = "select count(id) from [order] where Createdate=@date";
             SqlParameter[] paras = 
             {
@@ -70,10 +72,19 @@ namespace WMS
 
         private void updateAllOrder()
         {
+            //更新全部订单数量
             string sql = "select count(id) from [order] where 1=1";
             SqlParameter[] paras ={ };
             string order = sqlHelper.insertDate(sql, paras);
             labelOrder.Text = order;
+        }
+
+        private void dbBackUp()
+        {
+            string dbName = DateTime.Now.ToString("yyyy-MM-dd")+".bak";
+            string bkPath = Environment.CurrentDirectory+"\\back-up";
+            string bkSql = "backup database WMS to disk='"+bkPath+"\\"+dbName+"'";
+            sqlHelper.dbBackUp(bkSql);
         }
     }
 }

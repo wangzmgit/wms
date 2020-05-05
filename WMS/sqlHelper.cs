@@ -100,5 +100,15 @@ namespace WMS
             }
             return key;
         }
+
+        public static void dbBackUp(string sql)
+        {
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                SqlCommand cmd = new SqlCommand(sql,conn);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }
