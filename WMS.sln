@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.1062
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMS", "WMS\WMS.csproj", "{9A231AE8-9171-4FA1-BBCD-959A8E162FEF}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "仓库管理系统", "Setup1\Setup1.vdproj", "{FD8B143C-AD84-4C54-95F8-422570BC51A7}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "仓库管理系统", "仓库管理系统\仓库管理系统.vdproj", "{0B6FB929-6967-4FE1-AFD6-EEABCB5E17CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{9A231AE8-9171-4FA1-BBCD-959A8E162FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A231AE8-9171-4FA1-BBCD-959A8E162FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A231AE8-9171-4FA1-BBCD-959A8E162FEF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD8B143C-AD84-4C54-95F8-422570BC51A7}.Debug|Any CPU.ActiveCfg = Debug
-		{FD8B143C-AD84-4C54-95F8-422570BC51A7}.Release|Any CPU.ActiveCfg = Release
+		{0B6FB929-6967-4FE1-AFD6-EEABCB5E17CD}.Debug|Any CPU.ActiveCfg = Debug
+		{0B6FB929-6967-4FE1-AFD6-EEABCB5E17CD}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

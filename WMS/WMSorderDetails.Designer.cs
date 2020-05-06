@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WMSorderDetails));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -118,15 +119,16 @@
             this.price.Name = "price";
             this.price.ReadOnly = true;
             // 
-            // orderDetails
+            // WMSorderDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 572);
             this.Controls.Add(this.dgvOrder);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "orderDetails";
+            this.Name = "WMSorderDetails";
             this.Text = "订单详情";
             this.Load += new System.EventHandler(this.WMSdetails_Load);
             this.groupBox1.ResumeLayout(false);

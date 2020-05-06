@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.IO;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
@@ -85,6 +86,24 @@ namespace WMS
             string bkPath = Environment.CurrentDirectory+"\\back-up";
             string bkSql = "backup database WMS to disk='"+bkPath+"\\"+dbName+"'";
             sqlHelper.dbBackUp(bkSql);
+        }
+
+        private void buttonBackUp_Click(object sender, EventArgs e)
+        {
+            string bkPath = Environment.CurrentDirectory + "\\back-up";
+            if (!Directory.Exists(bkPath))
+            {
+                Directory.CreateDirectory(bkPath);
+            }
+            if(!File.Exists(bkPath+"\\说明文件.txt"))
+            {
+                FileStream fs1 = new FileStream(bkPath + "\\说明文件.txt", FileMode.Create, FileAccess.Write);//创建写入文件 
+                StreamWriter sw = new StreamWriter(fs1);
+                sw.WriteLine("这是数据库备份文件，请勿删除");//开始写入值
+                sw.Close();
+                fs1.Close();
+            }
+            dbBackUp();
         }
     }
 }

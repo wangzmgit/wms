@@ -224,6 +224,7 @@
             this.buttonBackUp.TabIndex = 9;
             this.buttonBackUp.Text = "备份数据库";
             this.buttonBackUp.UseVisualStyleBackColor = false;
+            this.buttonBackUp.Click += new System.EventHandler(this.buttonBackUp_Click);
             // 
             // WMSInfoPage
             // 

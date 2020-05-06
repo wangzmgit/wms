@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WMSnewHome));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -41,8 +42,8 @@
             this.buttonHome = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelTitle = new System.Windows.Forms.Panel();
-            this.panelWindow = new System.Windows.Forms.Panel();
             this.title = new System.Windows.Forms.Label();
+            this.panelWindow = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelTitle.SuspendLayout();
@@ -236,6 +237,7 @@
             // panelLogo
             // 
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(210, 107);
@@ -251,15 +253,6 @@
             this.panelTitle.Size = new System.Drawing.Size(1112, 77);
             this.panelTitle.TabIndex = 1;
             // 
-            // panelWindow
-            // 
-            this.panelWindow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelWindow.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panelWindow.Location = new System.Drawing.Point(210, 77);
-            this.panelWindow.Name = "panelWindow";
-            this.panelWindow.Size = new System.Drawing.Size(1112, 576);
-            this.panelWindow.TabIndex = 2;
-            // 
             // title
             // 
             this.title.AutoSize = true;
@@ -271,6 +264,15 @@
             this.title.TabIndex = 0;
             this.title.Text = "仓库管理系统";
             // 
+            // panelWindow
+            // 
+            this.panelWindow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelWindow.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panelWindow.Location = new System.Drawing.Point(210, 77);
+            this.panelWindow.Name = "panelWindow";
+            this.panelWindow.Size = new System.Drawing.Size(1112, 576);
+            this.panelWindow.TabIndex = 2;
+            // 
             // WMSnewHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -279,9 +281,10 @@
             this.Controls.Add(this.panelWindow);
             this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "WMSnewHome";
-            this.Text = "WMSnewHome";
+            this.Text = "仓库管理系统";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WMSnewHome_FormClosing);
             this.Load += new System.EventHandler(this.WMSnewHome_Load);
             this.panel1.ResumeLayout(false);

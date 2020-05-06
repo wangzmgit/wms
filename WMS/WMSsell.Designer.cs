@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WMSsell));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textQuantity = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,16 +39,6 @@
             this.textName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvInventory = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgvOrder = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.removeLine = new System.Windows.Forms.DataGridViewLinkColumn();
             this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +46,16 @@
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.add = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvOrder = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.removeLine = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.button3 = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -155,88 +156,6 @@
             this.dgvInventory.TabIndex = 4;
             this.dgvInventory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventory_CellContentClick);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dgvOrder);
-            this.groupBox2.Location = new System.Drawing.Point(0, 288);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1262, 360);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "订单";
-            // 
-            // dgvOrder
-            // 
-            this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.Quantity,
-            this.unit,
-            this.OrderPrice,
-            this.removeLine});
-            this.dgvOrder.Location = new System.Drawing.Point(6, 37);
-            this.dgvOrder.Name = "dgvOrder";
-            this.dgvOrder.ReadOnly = true;
-            this.dgvOrder.RowTemplate.Height = 27;
-            this.dgvOrder.Size = new System.Drawing.Size(1256, 301);
-            this.dgvOrder.TabIndex = 5;
-            this.dgvOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellContentClick);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(1014, 668);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(161, 53);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "确定";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "productID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "产品ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "产品名称";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "数量";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            // 
-            // unit
-            // 
-            this.unit.DataPropertyName = "unit";
-            this.unit.HeaderText = "单位";
-            this.unit.Name = "unit";
-            this.unit.ReadOnly = true;
-            // 
-            // OrderPrice
-            // 
-            this.OrderPrice.HeaderText = "售价";
-            this.OrderPrice.Name = "OrderPrice";
-            this.OrderPrice.ReadOnly = true;
-            this.OrderPrice.Width = 80;
-            // 
-            // removeLine
-            // 
-            dataGridViewCellStyle2.NullValue = "移除";
-            this.removeLine.DefaultCellStyle = dataGridViewCellStyle2;
-            this.removeLine.HeaderText = "移除";
-            this.removeLine.Name = "removeLine";
-            this.removeLine.ReadOnly = true;
-            this.removeLine.Width = 80;
-            // 
             // productID
             // 
             this.productID.DataPropertyName = "productID";
@@ -291,6 +210,88 @@
             this.add.ReadOnly = true;
             this.add.Width = 50;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dgvOrder);
+            this.groupBox2.Location = new System.Drawing.Point(0, 288);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1262, 360);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "订单";
+            // 
+            // dgvOrder
+            // 
+            this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.Quantity,
+            this.unit,
+            this.OrderPrice,
+            this.removeLine});
+            this.dgvOrder.Location = new System.Drawing.Point(6, 37);
+            this.dgvOrder.Name = "dgvOrder";
+            this.dgvOrder.ReadOnly = true;
+            this.dgvOrder.RowTemplate.Height = 27;
+            this.dgvOrder.Size = new System.Drawing.Size(1256, 301);
+            this.dgvOrder.TabIndex = 5;
+            this.dgvOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "productID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "产品ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "产品名称";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "数量";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // unit
+            // 
+            this.unit.DataPropertyName = "unit";
+            this.unit.HeaderText = "单位";
+            this.unit.Name = "unit";
+            this.unit.ReadOnly = true;
+            // 
+            // OrderPrice
+            // 
+            this.OrderPrice.HeaderText = "售价";
+            this.OrderPrice.Name = "OrderPrice";
+            this.OrderPrice.ReadOnly = true;
+            this.OrderPrice.Width = 80;
+            // 
+            // removeLine
+            // 
+            dataGridViewCellStyle2.NullValue = "移除";
+            this.removeLine.DefaultCellStyle = dataGridViewCellStyle2;
+            this.removeLine.HeaderText = "移除";
+            this.removeLine.Name = "removeLine";
+            this.removeLine.ReadOnly = true;
+            this.removeLine.Width = 80;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1014, 668);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(161, 53);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "确定";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -336,6 +337,7 @@
             this.Controls.Add(this.dgvInventory);
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "WMSsell";
             this.Text = "销售";

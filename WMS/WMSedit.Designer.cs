@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WMSedit));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -179,8 +180,8 @@
             // 
             // edit
             // 
-            dataGridViewCellStyle3.NullValue = "修改";
-            this.edit.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.NullValue = "修改";
+            this.edit.DefaultCellStyle = dataGridViewCellStyle1;
             this.edit.HeaderText = "修改";
             this.edit.Name = "edit";
             this.edit.ReadOnly = true;
@@ -188,8 +189,8 @@
             // 
             // delete
             // 
-            dataGridViewCellStyle4.NullValue = "删除";
-            this.delete.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.NullValue = "删除";
+            this.delete.DefaultCellStyle = dataGridViewCellStyle2;
             this.delete.HeaderText = "删除";
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
@@ -202,6 +203,7 @@
             this.ClientSize = new System.Drawing.Size(1226, 619);
             this.Controls.Add(this.dgvInventory);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.Name = "WMSedit";

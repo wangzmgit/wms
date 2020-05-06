@@ -143,6 +143,7 @@ namespace WMS
         private void WMSnewHome_Load(object sender, EventArgs e)
         {
             buttonHome_Click(sender, e);
+
         }
     }
 }
