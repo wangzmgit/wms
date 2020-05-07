@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Configuration;
 using System.Windows.Forms;
 
 namespace WMS
@@ -43,7 +37,19 @@ namespace WMS
             DialogResult result = MessageBox.Show("确认退出吗", "退出提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Application.ExitThread();
+                if (ConfigurationManager.AppSettings["canTray"].Equals("true"))
+                {
+                    //隐藏到托盘
+                    e.Cancel = true;
+                    WindowState = FormWindowState.Minimized;//最小化主窗口
+                    ShowInTaskbar = false;
+                    notifyIcon1.Visible = true;  //托盘图标可见
+                    notifyIcon1.ShowBalloonTip(2000, "最小化到托盘", "程序已经缩小到托盘，单击打开程序。", ToolTipIcon.Info);
+                }
+                else
+                {
+                    Application.ExitThread();
+                }
             }
             else
             {
@@ -143,7 +149,28 @@ namespace WMS
         private void WMSnewHome_Load(object sender, EventArgs e)
         {
             buttonHome_Click(sender, e);
+            notifyIcon1.Visible = false;  //托盘图标可见
+        }
 
+        private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (this.WindowState == FormWindowState.Minimized)
+                {
+                    //还原窗体
+                    this.WindowState = FormWindowState.Normal;
+                    //系统任务栏显示图标
+                    this.ShowInTaskbar = true;
+                }
+                //激活窗体并获取焦点
+                this.Activate();
+            }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.ExitThread();
         }
     }
 }

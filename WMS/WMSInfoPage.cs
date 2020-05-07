@@ -4,6 +4,7 @@ using System.IO;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace WMS
 {
@@ -28,10 +29,12 @@ namespace WMS
        private void updataDgvStock()
        {
             dgvStock.ForeColor = Color.Red;
+            //获取低库存预警值
+            string lessWaring = ConfigurationManager.AppSettings["lessWarning"];
             string sql = "select productID,name,stock from Inventory where stock < @stock";
             SqlParameter[] paras =
             {
-                new SqlParameter("@stock",20)
+                new SqlParameter("@stock",lessWaring)
             };
             DataTable dataTable = sqlHelper.GetDataTable(sql, paras);
             dgvStock.DataSource = dataTable;
@@ -86,6 +89,7 @@ namespace WMS
             string bkPath = Environment.CurrentDirectory+"\\back-up";
             string bkSql = "backup database WMS to disk='"+bkPath+"\\"+dbName+"'";
             sqlHelper.dbBackUp(bkSql);
+            MessageBox.Show("完成","提示" ,MessageBoxButtons.OK);
         }
 
         private void buttonBackUp_Click(object sender, EventArgs e)

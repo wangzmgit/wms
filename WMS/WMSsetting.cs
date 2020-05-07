@@ -13,30 +13,41 @@ namespace WMS
         
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            if (autoLogin.Checked)
+            //预警值设置
+            int intLess;
+            string less = textLessWarning.Text.Trim();
+            if(!int.TryParse(less,out intLess))
             {
-                //自动登录
-                MessageBox.Show("此功能还在开发中", "提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                if(ConfigurationManager.AppSettings["rememberPwd"].Equals("true"))
-                {
-                    cfa.AppSettings.Settings["autoLogin"].Value = "true";
-                    cfa.Save();  
-                }
+                MessageBox.Show("预警值输入有误", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None); 
+            {
+                cfa.AppSettings.Settings["lessWarning"].Value = less;
+            }
+            //托盘设置
+            if(!checkTray.Checked)
+            {
+                cfa.AppSettings.Settings["canTray"].Value = "false";
             }
             else
             {
-                cfa.AppSettings.Settings["autoLogin"].Value = "false";
-                cfa.Save();
+                cfa.AppSettings.Settings["canTray"].Value = "true";
             }
-           // MessageBox.Show("设置成功，下次启动时生效", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if(checkStart.Checked)
+            {
+                MessageBox.Show("此功能正在开发中...", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            cfa.Save();
+            MessageBox.Show("设置成功，下次启动时生效", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void WMSsetting_Load(object sender, EventArgs e)
         {
-            if (ConfigurationManager.AppSettings["autoLogin"].Equals("true"))
+            textLessWarning.Text = ConfigurationManager.AppSettings["lessWarning"];
+            if(ConfigurationManager.AppSettings["canTray"].Equals("true"))
             {
-                autoLogin.Checked = true;
+                checkTray.Checked = true;
             }
         }
 

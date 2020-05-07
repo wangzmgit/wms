@@ -35,11 +35,6 @@ namespace WMS
                 userNameText.Text = ConfigurationManager.AppSettings["name"];
                 checkBox1.Checked = true;
             }
-
-            if(ConfigurationManager.AppSettings["autoLogin"].Equals("true"))
-            {
-                //这个功能有bug，暂时写不出来
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
