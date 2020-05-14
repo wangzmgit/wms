@@ -1,19 +1,31 @@
 ﻿using System;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace WMS
 {
     public partial class WMSnewHome : Form
     {
-        public WMSnewHome()
+        private string userName = null;
+        public WMSnewHome(string _userName)
         {
             InitializeComponent();
             cutomizeDesing();
+            userName = _userName;
         }
-        
+
+        private void WMSnewHome_Load(object sender, EventArgs e)
+        {
+            buttonHome_Click(sender, e);
+            //notifyIcon1.Visible = false;  //托盘图标可见
+            labelUser.Text = "当前用户: "+userName;
+            dispalyIdentity(userName);
+        }
+
         private void cutomizeDesing()
         {
+            //编辑信息系列按钮
             panel2.Visible = false;
         }
 
@@ -48,7 +60,7 @@ namespace WMS
                 }
                 else
                 {
-                    Application.ExitThread();
+                     Application.ExitThread();                    
                 }
             }
             else
@@ -146,31 +158,54 @@ namespace WMS
             infoPage.Show();
         }
 
-        private void WMSnewHome_Load(object sender, EventArgs e)
-        {
-            buttonHome_Click(sender, e);
-            notifyIcon1.Visible = false;  //托盘图标可见
-        }
-
+        /// <summary>
+        /// 最小化到托盘
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                if (this.WindowState == FormWindowState.Minimized)
+                if (WindowState == FormWindowState.Minimized)
                 {
                     //还原窗体
-                    this.WindowState = FormWindowState.Normal;
+                    WindowState = FormWindowState.Normal;
                     //系统任务栏显示图标
-                    this.ShowInTaskbar = true;
+                    ShowInTaskbar = true;
                 }
                 //激活窗体并获取焦点
-                this.Activate();
+                Activate();
             }
         }
 
+
+        /// <summary>
+        /// 托盘菜单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Application.ExitThread();
+        }
+
+        private void dispalyIdentity(string userName)
+        {
+            string sql = "select isAdmin from userInfo where UserName=@UserName";
+            SqlParameter[] paras =
+            {
+                new SqlParameter("@UserName",userName)
+            };
+            string isAdmin = sqlHelper.sqlExecuteScalar(sql, paras);
+            if(isAdmin=="1")
+            {
+                labelIdentity.Text = "[管理员]";
+            }
+            else
+            {
+                labelIdentity.Text = "[普通用户]";
+            }
         }
     }
 }

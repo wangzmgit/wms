@@ -88,13 +88,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FEDFE862ACFA1CAD8C607CABF0E3AE5A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_045BA1A3AC329141455A35B4B0303828"
+        "OwnerKey" = "8:_C3A0F154CED01ACC15DE2BA257C829AB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -106,7 +100,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C3A0F154CED01ACC15DE2BA257C829AB"
+        "OwnerKey" = "8:_045BA1A3AC329141455A35B4B0303828"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FEDFE862ACFA1CAD8C607CABF0E3AE5A"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -266,7 +266,7 @@
             "SourcePath" = "8:..\\..\\仓库管理系统版本\\1.0.0\\安装说明.txt"
             "TargetName" = "8:安装说明.txt"
             "Tag" = "8:"
-            "Folder" = "8:_77916B7AF0C9411ABAE28919536F5F72"
+            "Folder" = "8:_4E8D5F2120A94AB59CDB042DBA8F8846"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -286,7 +286,7 @@
             "SourcePath" = "8:..\\导入模板.xlsx"
             "TargetName" = "8:导入模板.xlsx"
             "Tag" = "8:"
-            "Folder" = "8:_77916B7AF0C9411ABAE28919536F5F72"
+            "Folder" = "8:_4E8D5F2120A94AB59CDB042DBA8F8846"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"

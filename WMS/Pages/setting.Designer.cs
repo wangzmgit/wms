@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkTray = new System.Windows.Forms.CheckBox();
+            this.checkStart = new System.Windows.Forms.CheckBox();
             this.textLessWarning = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonSave = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkStart = new System.Windows.Forms.CheckBox();
-            this.checkTray = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.buttonBackUp = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +57,28 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "设置";
+            // 
+            // checkTray
+            // 
+            this.checkTray.AutoSize = true;
+            this.checkTray.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.checkTray.Location = new System.Drawing.Point(39, 133);
+            this.checkTray.Name = "checkTray";
+            this.checkTray.Size = new System.Drawing.Size(108, 25);
+            this.checkTray.TabIndex = 5;
+            this.checkTray.Text = "允许托盘";
+            this.checkTray.UseVisualStyleBackColor = true;
+            // 
+            // checkStart
+            // 
+            this.checkStart.AutoSize = true;
+            this.checkStart.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.checkStart.Location = new System.Drawing.Point(495, 48);
+            this.checkStart.Name = "checkStart";
+            this.checkStart.Size = new System.Drawing.Size(108, 25);
+            this.checkStart.TabIndex = 4;
+            this.checkStart.Text = "开机启动";
+            this.checkStart.UseVisualStyleBackColor = true;
             // 
             // textLessWarning
             // 
@@ -92,7 +114,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.buttonBackUp);
             this.groupBox2.Controls.Add(this.linkLabel1);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Font = new System.Drawing.Font("华文细黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -101,7 +123,7 @@
             this.groupBox2.Size = new System.Drawing.Size(1066, 289);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "帮助";
+            this.groupBox2.Text = "其他内容";
             // 
             // linkLabel1
             // 
@@ -123,36 +145,19 @@
             this.label1.Size = new System.Drawing.Size(0, 21);
             this.label1.TabIndex = 0;
             // 
-            // checkStart
+            // buttonBackUp
             // 
-            this.checkStart.AutoSize = true;
-            this.checkStart.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.checkStart.Location = new System.Drawing.Point(495, 48);
-            this.checkStart.Name = "checkStart";
-            this.checkStart.Size = new System.Drawing.Size(108, 25);
-            this.checkStart.TabIndex = 4;
-            this.checkStart.Text = "开机启动";
-            this.checkStart.UseVisualStyleBackColor = true;
-            // 
-            // checkTray
-            // 
-            this.checkTray.AutoSize = true;
-            this.checkTray.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.checkTray.Location = new System.Drawing.Point(39, 133);
-            this.checkTray.Name = "checkTray";
-            this.checkTray.Size = new System.Drawing.Size(108, 25);
-            this.checkTray.TabIndex = 5;
-            this.checkTray.Text = "允许托盘";
-            this.checkTray.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(54, 52);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(200, 21);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "帮助内容参照安装说明";
+            this.buttonBackUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
+            this.buttonBackUp.FlatAppearance.BorderSize = 0;
+            this.buttonBackUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBackUp.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonBackUp.Location = new System.Drawing.Point(39, 52);
+            this.buttonBackUp.Name = "buttonBackUp";
+            this.buttonBackUp.Size = new System.Drawing.Size(153, 48);
+            this.buttonBackUp.TabIndex = 2;
+            this.buttonBackUp.Text = "备份数据库";
+            this.buttonBackUp.UseVisualStyleBackColor = false;
+            this.buttonBackUp.Click += new System.EventHandler(this.buttonBackUp_Click);
             // 
             // WMSsetting
             // 
@@ -183,6 +188,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkTray;
         private System.Windows.Forms.CheckBox checkStart;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button buttonBackUp;
     }
 }

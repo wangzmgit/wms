@@ -128,7 +128,7 @@ namespace WMS
                     new SqlParameter("@orderNum",orderNum),
                     new SqlParameter("@amount",amount)
             };
-            string key = sqlHelper.insertDate(sql, paras);//订单的ID
+            string key = sqlHelper.sqlExecuteScalar(sql, paras);//订单的ID
             if (!string.IsNullOrEmpty(key))
             {
                 //创建商品表

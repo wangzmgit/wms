@@ -16,6 +16,8 @@ namespace WMS
         public WMSInventory()
         {
             InitializeComponent();
+            beautify.SetGridViewType(dgvInventory);
+            dgvInventory.RowHeadersVisible = false;//除去第一列
         }
 
         private void WMSInventory_Load(object sender, EventArgs e)
@@ -46,16 +48,24 @@ namespace WMS
         private void button2_Click(object sender, EventArgs e)
         {
             dispalyAll();
+            buttonFind.Visible = true;
+            groupBox1.Visible = false;
         }
 
         //显示全部
         private void dispalyAll()
         {
+
             dgvInventory.ForeColor = Color.Black;
             string sql = "select productID,name,stock,unit,price,supplier,entry,remarks from Inventory";
             DataTable dtGradeList = sqlHelper.GetDataTable(sql);
             dgvInventory.DataSource = dtGradeList;
-            dgvInventory.AllowUserToAddRows = false;//去除空行
+        }
+
+        private void buttonFind_Click(object sender, EventArgs e)
+        {
+            groupBox1.Visible = true;
+            buttonFind.Visible = false;
         }
     }
 }

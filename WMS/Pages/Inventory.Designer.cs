@@ -43,6 +43,7 @@
             this.supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.entry = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonFind = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
@@ -50,17 +51,19 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textName);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox1.Location = new System.Drawing.Point(0, 433);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1082, 100);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查找";
+            this.groupBox1.Visible = false;
             // 
             // button2
             // 
@@ -92,34 +95,39 @@
             // 
             // textName
             // 
-            this.textName.Location = new System.Drawing.Point(353, 38);
+            this.textName.Location = new System.Drawing.Point(255, 38);
             this.textName.Multiline = true;
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(244, 32);
+            this.textName.Size = new System.Drawing.Size(357, 32);
             this.textName.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Font = new System.Drawing.Font("华文细黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label1.Location = new System.Drawing.Point(258, 50);
+            this.label1.Location = new System.Drawing.Point(159, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 20);
+            this.label1.Size = new System.Drawing.Size(90, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "产品名称";
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonFind);
             this.panel1.Controls.Add(this.dgvInventory);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 100);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1082, 433);
             this.panel1.TabIndex = 2;
             // 
             // dgvInventory
             // 
+            this.dgvInventory.AllowUserToAddRows = false;
+            this.dgvInventory.AllowUserToDeleteRows = false;
+            this.dgvInventory.AllowUserToResizeColumns = false;
+            this.dgvInventory.AllowUserToResizeRows = false;
             this.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.productID,
@@ -201,6 +209,22 @@
             this.remarks.ReadOnly = true;
             this.remarks.Width = 150;
             // 
+            // buttonFind
+            // 
+            this.buttonFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(195)))), ((int)(((byte)(194)))));
+            this.buttonFind.Cursor = System.Windows.Forms.Cursors.PanNorth;
+            this.buttonFind.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonFind.FlatAppearance.BorderSize = 0;
+            this.buttonFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFind.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonFind.Location = new System.Drawing.Point(0, 395);
+            this.buttonFind.Name = "buttonFind";
+            this.buttonFind.Size = new System.Drawing.Size(1082, 38);
+            this.buttonFind.TabIndex = 2;
+            this.buttonFind.Text = "查找";
+            this.buttonFind.UseVisualStyleBackColor = false;
+            this.buttonFind.Click += new System.EventHandler(this.buttonFind_Click);
+            // 
             // WMSInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -237,5 +261,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn supplier;
         private System.Windows.Forms.DataGridViewTextBoxColumn entry;
         private System.Windows.Forms.DataGridViewTextBoxColumn remarks;
+        private System.Windows.Forms.Button buttonFind;
     }
 }

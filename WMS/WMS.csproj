@@ -58,43 +58,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WMSbatchImport.cs">
+    <Compile Include="Class\beautify.cs" />
+    <Compile Include="Pages\batchImport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WMSbatchImport.Designer.cs">
-      <DependentUpon>WMSbatchImport.cs</DependentUpon>
+    <Compile Include="Pages\batchImport.Designer.cs">
+      <DependentUpon>batchImport.cs</DependentUpon>
     </Compile>
-    <Compile Include="dataProcessing.cs" />
-    <Compile Include="sqlHelper.cs" />
-    <Compile Include="WMSadd.cs">
+    <Compile Include="Class\dataProcessing.cs" />
+    <Compile Include="Class\sqlHelper.cs" />
+    <Compile Include="Pages\add.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WMSadd.Designer.cs">
-      <DependentUpon>WMSadd.cs</DependentUpon>
+    <Compile Include="Pages\add.Designer.cs">
+      <DependentUpon>add.cs</DependentUpon>
     </Compile>
-    <Compile Include="WMSorderDetails.cs">
+    <Compile Include="Pages\orderDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WMSorderDetails.Designer.cs">
-      <DependentUpon>WMSorderDetails.cs</DependentUpon>
+    <Compile Include="Pages\orderDetails.Designer.cs">
+      <DependentUpon>orderDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="WMSedit.cs">
+    <Compile Include="Pages\edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WMSedit.Designer.cs">
-      <DependentUpon>WMSedit.cs</DependentUpon>
+    <Compile Include="Pages\edit.Designer.cs">
+      <DependentUpon>edit.cs</DependentUpon>
     </Compile>
-    <Compile Include="WMSInfoPage.cs">
+    <Compile Include="Pages\InfoPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WMSInfoPage.Designer.cs">
-      <DependentUpon>WMSInfoPage.cs</DependentUpon>
+    <Compile Include="Pages\InfoPage.Designer.cs">
+      <DependentUpon>InfoPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="WMSInventory.cs">
+    <Compile Include="Pages\Inventory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WMSInventory.Designer.cs">
-      <DependentUpon>WMSInventory.cs</DependentUpon>
+    <Compile Include="Pages\Inventory.Designer.cs">
+      <DependentUpon>Inventory.cs</DependentUpon>
     </Compile>
     <Compile Include="WMSlogin.cs">
       <SubType>Form</SubType>
@@ -102,13 +103,13 @@
     <Compile Include="WMSlogin.Designer.cs">
       <DependentUpon>WMSlogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Class\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WMSmodify.cs">
+    <Compile Include="Pages\modify.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WMSmodify.Designer.cs">
-      <DependentUpon>WMSmodify.cs</DependentUpon>
+    <Compile Include="Pages\modify.Designer.cs">
+      <DependentUpon>modify.cs</DependentUpon>
     </Compile>
     <Compile Include="WMSnewHome.cs">
       <SubType>Form</SubType>
@@ -116,47 +117,47 @@
     <Compile Include="WMSnewHome.Designer.cs">
       <DependentUpon>WMSnewHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="WMSorder.cs">
+    <Compile Include="Pages\order.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WMSorder.Designer.cs">
-      <DependentUpon>WMSorder.cs</DependentUpon>
+    <Compile Include="Pages\order.Designer.cs">
+      <DependentUpon>order.cs</DependentUpon>
     </Compile>
-    <Compile Include="WMSsell.cs">
+    <Compile Include="Pages\sell.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WMSsell.Designer.cs">
-      <DependentUpon>WMSsell.cs</DependentUpon>
+    <Compile Include="Pages\sell.Designer.cs">
+      <DependentUpon>sell.cs</DependentUpon>
     </Compile>
-    <Compile Include="WMSsetting.cs">
+    <Compile Include="Pages\setting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WMSsetting.Designer.cs">
-      <DependentUpon>WMSsetting.cs</DependentUpon>
+    <Compile Include="Pages\setting.Designer.cs">
+      <DependentUpon>setting.cs</DependentUpon>
     </Compile>
-    <Compile Include="WMSuser.cs">
+    <Compile Include="Pages\user.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WMSuser.Designer.cs">
-      <DependentUpon>WMSuser.cs</DependentUpon>
+    <Compile Include="Pages\user.Designer.cs">
+      <DependentUpon>user.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="WMSadd.resx">
-      <DependentUpon>WMSadd.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\add.resx">
+      <DependentUpon>add.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WMSbatchImport.resx">
-      <DependentUpon>WMSbatchImport.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\batchImport.resx">
+      <DependentUpon>batchImport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WMSorderDetails.resx">
-      <DependentUpon>WMSorderDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\orderDetails.resx">
+      <DependentUpon>orderDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WMSedit.resx">
-      <DependentUpon>WMSedit.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\edit.resx">
+      <DependentUpon>edit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WMSInfoPage.resx">
-      <DependentUpon>WMSInfoPage.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\InfoPage.resx">
+      <DependentUpon>InfoPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WMSInventory.resx">
-      <DependentUpon>WMSInventory.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\Inventory.resx">
+      <DependentUpon>Inventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WMSlogin.resx">
       <DependentUpon>WMSlogin.cs</DependentUpon>
@@ -170,23 +171,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="WMSmodify.resx">
-      <DependentUpon>WMSmodify.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\modify.resx">
+      <DependentUpon>modify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WMSnewHome.resx">
       <DependentUpon>WMSnewHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WMSorder.resx">
-      <DependentUpon>WMSorder.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\order.resx">
+      <DependentUpon>order.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WMSsell.resx">
-      <DependentUpon>WMSsell.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\sell.resx">
+      <DependentUpon>sell.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WMSsetting.resx">
-      <DependentUpon>WMSsetting.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\setting.resx">
+      <DependentUpon>setting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WMSuser.resx">
-      <DependentUpon>WMSuser.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\user.resx">
+      <DependentUpon>user.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -205,5 +206,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

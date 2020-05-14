@@ -11,6 +11,7 @@ namespace WMS
         public WMSorder()
         {
             InitializeComponent();
+            beautify.SetGridViewType(dgvOrder);
         }
 
         private void WMSorder_Load(object sender, EventArgs e)
@@ -60,7 +61,7 @@ namespace WMS
             string sql = "select id,orderNum,amount,Createdate from [order]";
             DataTable dtGradeList = sqlHelper.GetDataTable(sql);
             dgvOrder.DataSource = dtGradeList;
-            dgvOrder.AllowUserToAddRows = false;//去除空行
+            dgvOrder.RowHeadersVisible = false;
         }
     }
 }

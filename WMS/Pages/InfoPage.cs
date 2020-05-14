@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.IO;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
@@ -13,6 +12,8 @@ namespace WMS
         public WMSInfoPage()
         {
             InitializeComponent();
+            beautify.SetGridViewType(dgvSales);
+            beautify.SetGridViewType(dgvStock);
         }
 
         private void WMSinfoPage_Load(object sender, EventArgs e)
@@ -22,6 +23,7 @@ namespace WMS
             updateQuantiy();
             updateTodayOrder();
             updateAllOrder();
+            backUpDB();
         }
         /// <summary>
         /// 更新低库存数据
@@ -38,7 +40,7 @@ namespace WMS
             };
             DataTable dataTable = sqlHelper.GetDataTable(sql, paras);
             dgvStock.DataSource = dataTable;
-            dgvStock.AllowUserToAddRows = false;
+            dgvStock.RowHeadersVisible = false;
         }
         /// <summary>
         /// 销量前5
@@ -50,7 +52,7 @@ namespace WMS
             SqlParameter[] paras = { };
             DataTable dataTable = sqlHelper.GetDataTable(sql, paras);
             dgvSales.DataSource = dataTable;
-            dgvSales.AllowUserToAddRows = false;
+            dgvSales.RowHeadersVisible = false;
         }
         
         private void updateQuantiy()
@@ -58,7 +60,7 @@ namespace WMS
             //更新产品数量
             string sql = "select count(productID) from Inventory where 1=1";
             SqlParameter[] paras ={ };
-            string quantity = sqlHelper.insertDate(sql, paras);
+            string quantity = sqlHelper.sqlExecuteScalar(sql, paras);
             labelQuantity.Text = quantity;
         }
 
@@ -70,7 +72,7 @@ namespace WMS
             {
                 new SqlParameter("@date",DateTime.Now.ToString("yyyy-MM-dd"))
             };
-            string TDorder = sqlHelper.insertDate(sql, paras);
+            string TDorder = sqlHelper.sqlExecuteScalar(sql, paras);
             labelOrderTD.Text = TDorder;
         }
 
@@ -79,35 +81,48 @@ namespace WMS
             //更新全部订单数量
             string sql = "select count(id) from [order] where 1=1";
             SqlParameter[] paras ={ };
-            string order = sqlHelper.insertDate(sql, paras);
+            string order = sqlHelper.sqlExecuteScalar(sql, paras);
             labelOrder.Text = order;
         }
 
-        private void dbBackUp()
+        private void backUpDB()
         {
-            string dbName = DateTime.Now.ToString("yyyy-MM-dd")+".bak";
-            string bkPath = Environment.CurrentDirectory+"\\back-up";
-            string bkSql = "backup database WMS to disk='"+bkPath+"\\"+dbName+"'";
-            sqlHelper.dbBackUp(bkSql);
-            MessageBox.Show("完成","提示" ,MessageBoxButtons.OK);
+            //数据库备份信息
+            string bkDate = ConfigurationManager.AppSettings["LastBackup"];
+            if(string.IsNullOrEmpty(bkDate))
+            {
+
+                labelBackUpDate.Text = "暂无备份记录";
+                linkLabelGoSetting.Visible = true;
+            }
+            else
+            {
+                labelBackUpDate.Text = bkDate;
+            }
+            //计算间隔时间
+            DateTime dateTime = DateTime.Parse(bkDate);
+            DateTime dateTimeNow = DateTime.Now;
+            TimeSpan timeSpan = dateTime.Subtract(dateTimeNow);
+            int day = timeSpan.Days;
+            if(day>=15)
+            {
+                labelInterval.Text = "您已" + day + "天没有备份数据";
+                labelInterval.Visible = true;
+                linkLabelGoSetting.Visible = true;
+            }
+
         }
 
-        private void buttonBackUp_Click(object sender, EventArgs e)
+        private void linkLabelGoSetting_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string bkPath = Environment.CurrentDirectory + "\\back-up";
-            if (!Directory.Exists(bkPath))
-            {
-                Directory.CreateDirectory(bkPath);
-            }
-            if(!File.Exists(bkPath+"\\说明文件.txt"))
-            {
-                FileStream fs1 = new FileStream(bkPath + "\\说明文件.txt", FileMode.Create, FileAccess.Write);//创建写入文件 
-                StreamWriter sw = new StreamWriter(fs1);
-                sw.WriteLine("这是数据库备份文件，请勿删除");//开始写入值
-                sw.Close();
-                fs1.Close();
-            }
-            dbBackUp();
+            //在当前panel里加载设置页
+            panel1.Controls.Clear();//移除所有控件
+            WMSsetting setting = new WMSsetting();
+            setting.TopLevel = false;
+            setting.Dock = DockStyle.Fill;
+            setting.FormBorderStyle = FormBorderStyle.None;
+            panel1.Controls.Add(setting);
+            setting.Show();
         }
     }
 }

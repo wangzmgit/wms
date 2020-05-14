@@ -71,21 +71,30 @@ namespace WMS
                 }
                 else if (cell is DataGridViewLinkCell && cell.FormattedValue.ToString() == "删除")
                 {
-                    //获取ID号
-                    int productID = int.Parse(row["productID"].ToString());
-                    string sql = "delete from Inventory where productID = @productID";
-                    SqlParameter paras = new SqlParameter("@productID", productID);
-                    int count = sqlHelper.ExecuteNonQuery(sql, paras);
-                    if (count > 0)
+                    DialogResult dr = MessageBox.Show("是否确认删除?", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if(dr==DialogResult.OK)
                     {
-                        MessageBox.Show("删除成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        WMSedit_Load(sender, e);
+                        //获取ID号
+                        int productID = int.Parse(row["productID"].ToString());
+                        string sql = "delete from Inventory where productID = @productID";
+                        SqlParameter paras = new SqlParameter("@productID", productID);
+                        int count = sqlHelper.ExecuteNonQuery(sql, paras);
+                        if (count > 0)
+                        {
+                            MessageBox.Show("删除成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            WMSedit_Load(sender, e);
+                        }
+                        else
+                        {
+                            MessageBox.Show("删除失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("删除失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+                    
                 }
             }
         }

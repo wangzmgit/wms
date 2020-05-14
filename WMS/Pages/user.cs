@@ -17,28 +17,28 @@ namespace WMS
         public WMSuser()
         {
             InitializeComponent();
-            label5.Visible = false;
-        }
-        
-        private void button1_Click(object sender, EventArgs e)
+            comboBox1.SelectedIndex = 1;
+        }   
+
+        private void buttonEditPwd_Click(object sender, EventArgs e)
         {
             string userName = textUserName.Text.Trim();
             string oldPwd = textOldPwd.Text.Trim();
             string newPwd = textNewPwd.Text.Trim();
             string newPwd2 = textNewPwd2.Text.Trim();
-            if(string.IsNullOrEmpty(userName))
+            if (string.IsNullOrEmpty(userName))
             {
-                MessageBox.Show("用户名不能为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                labelNullName.Visible = true;
                 return;
             }
             if (string.IsNullOrEmpty(oldPwd))
             {
-                MessageBox.Show("旧密码不能为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                labelNullOldPwd.Visible = true;
                 return;
             }
-            if (string.IsNullOrEmpty(newPwd)&&!label5.Visible)
+            if (string.IsNullOrEmpty(newPwd) && !label5.Visible)
             {
-                MessageBox.Show("新密码不能为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                labelNullNewPwd.Visible = true;
                 return;
             }
             //比对数据
@@ -77,21 +77,6 @@ namespace WMS
             }
         }
 
-        private void textNewPwd2_TextChanged(object sender, EventArgs e)
-        {
-            //确认密码不一致提示
-            string str = textNewPwd.Text.Trim();
-            string str2 = textNewPwd2.Text.Trim();
-            if(str!=str2)
-            {
-                label5.Visible = true;
-            }
-            else
-            {
-                label5.Visible = false;
-            }
-        }
-
         private void textNewPwd_TextChanged(object sender, EventArgs e)
         {
             //确认密码不一致提示
@@ -107,7 +92,27 @@ namespace WMS
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void textNewPwd2_TextChanged(object sender, EventArgs e)
+        {
+            //确认密码不一致提示
+            string str = textNewPwd.Text.Trim();
+            string str2 = textNewPwd2.Text.Trim();
+            if (str != str2)
+            {
+                label5.Visible = true;
+            }
+            else
+            {
+                label5.Visible = false;
+            }
+        }
+
+        /// <summary>
+        /// 添加按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonAddUser_Click(object sender, EventArgs e)
         {
             string addUserName = textaddName.Text.Trim();
             string adminPwd = textAdminPwd.Text.Trim();
@@ -123,7 +128,7 @@ namespace WMS
                 MessageBox.Show("管理员密码不能为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return;
             }
-            if (addPwd!=addpwd2)
+            if (addPwd != addpwd2)
             {
                 MessageBox.Show("两次密码不一致", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return;
@@ -132,6 +137,12 @@ namespace WMS
             {
                 MessageBox.Show("密码不能为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return;
+            }
+            //获取身份
+            int isAdmin = 0;
+            if(comboBox1.SelectedIndex==0)
+            {
+                isAdmin = 1;
             }
             //验证管理员密码
             adminPwd = dataProcessing.Encrypt(adminPwd, key);
@@ -144,7 +155,7 @@ namespace WMS
             object o = helper.ExecuteScalar(sql, paras);
             if (o == null || o == DBNull.Value || ((int)o) == 0)
             {
-                MessageBox.Show("管理员密码有误","错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("管理员密码有误", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
@@ -160,11 +171,12 @@ namespace WMS
                 {
                     //用户名不存在，进行添加
                     addPwd = dataProcessing.Encrypt(addPwd, key);
-                    string sqlAdd = "insert into userInfo (UserName,UserPwd) values (@userName,@userPwd)";
+                    string sqlAdd = "insert into userInfo (UserName,UserPwd,isAdmin) values (@userName,@userPwd,@isAdmin)";
                     SqlParameter[] paraAdd =
                     {
                     new SqlParameter("@userName",addUserName),
-                    new SqlParameter("@userPwd",addPwd)
+                    new SqlParameter("@userPwd",addPwd),
+                    new SqlParameter("@isAdmin",isAdmin)
                      };
                     int count = sqlHelper.ExecuteNonQuery(sqlAdd, paraAdd);
                     if (count > 0)
@@ -183,7 +195,6 @@ namespace WMS
                     return;
                 }
             }
-
         }
     }
 }

@@ -86,9 +86,8 @@ namespace WMS
         /// <param name="sql"></param>
         /// <param name="paras"></param>
         /// <returns></returns>
-        public static string insertDate(string sql,params SqlParameter[] paras)
+        public static string sqlExecuteScalar(string sql,params SqlParameter[] paras)
         {
-            //命名错误，可以插入，也可以查找
             string key = null;
             using (SqlConnection conn = new SqlConnection(connString))
             {

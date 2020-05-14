@@ -43,11 +43,14 @@
             this.buttonHome = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelTitle = new System.Windows.Forms.Panel();
+            this.labelUser = new System.Windows.Forms.Label();
             this.title = new System.Windows.Forms.Label();
             this.panelWindow = new System.Windows.Forms.Panel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.labelIdentity = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelTitle.SuspendLayout();
@@ -78,7 +81,7 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("华文细黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button7.Location = new System.Drawing.Point(0, 590);
+            this.button7.Location = new System.Drawing.Point(0, 560);
             this.button7.Name = "button7";
             this.button7.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button7.Size = new System.Drawing.Size(210, 60);
@@ -95,7 +98,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("华文细黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button6.Location = new System.Drawing.Point(0, 530);
+            this.button6.Location = new System.Drawing.Point(0, 500);
             this.button6.Name = "button6";
             this.button6.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button6.Size = new System.Drawing.Size(210, 60);
@@ -112,7 +115,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("华文细黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.Location = new System.Drawing.Point(0, 470);
+            this.button5.Location = new System.Drawing.Point(0, 440);
             this.button5.Name = "button5";
             this.button5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button5.Size = new System.Drawing.Size(210, 60);
@@ -129,7 +132,7 @@
             this.panel2.Controls.Add(this.buttonEdit);
             this.panel2.Controls.Add(this.buttonAdd);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 287);
+            this.panel2.Location = new System.Drawing.Point(0, 257);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(210, 183);
             this.panel2.TabIndex = 4;
@@ -193,7 +196,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("华文细黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(0, 227);
+            this.button2.Location = new System.Drawing.Point(0, 197);
             this.button2.Name = "button2";
             this.button2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button2.Size = new System.Drawing.Size(210, 60);
@@ -211,7 +214,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("华文细黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(0, 167);
+            this.button1.Location = new System.Drawing.Point(0, 137);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button1.Size = new System.Drawing.Size(210, 60);
@@ -229,7 +232,7 @@
             this.buttonHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonHome.Font = new System.Drawing.Font("华文细黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonHome.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonHome.Location = new System.Drawing.Point(0, 107);
+            this.buttonHome.Location = new System.Drawing.Point(0, 77);
             this.buttonHome.Name = "buttonHome";
             this.buttonHome.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonHome.Size = new System.Drawing.Size(210, 60);
@@ -245,18 +248,31 @@
             this.panelLogo.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(210, 107);
+            this.panelLogo.Size = new System.Drawing.Size(210, 77);
             this.panelLogo.TabIndex = 0;
             // 
             // panelTitle
             // 
             this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
+            this.panelTitle.Controls.Add(this.labelIdentity);
+            this.panelTitle.Controls.Add(this.labelUser);
             this.panelTitle.Controls.Add(this.title);
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Location = new System.Drawing.Point(210, 0);
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.Size = new System.Drawing.Size(1112, 77);
             this.panelTitle.TabIndex = 1;
+            // 
+            // labelUser
+            // 
+            this.labelUser.AutoSize = true;
+            this.labelUser.Font = new System.Drawing.Font("华文细黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelUser.ForeColor = System.Drawing.SystemColors.Window;
+            this.labelUser.Location = new System.Drawing.Point(699, 32);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(67, 21);
+            this.labelUser.TabIndex = 1;
+            this.labelUser.Text = "label1";
             // 
             // title
             // 
@@ -292,14 +308,25 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 56);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(109, 28);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(108, 24);
             this.toolStripMenuItem1.Text = "退出";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // labelIdentity
+            // 
+            this.labelIdentity.AutoSize = true;
+            this.labelIdentity.Font = new System.Drawing.Font("华文细黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelIdentity.ForeColor = System.Drawing.SystemColors.Window;
+            this.labelIdentity.Location = new System.Drawing.Point(866, 32);
+            this.labelIdentity.Name = "labelIdentity";
+            this.labelIdentity.Size = new System.Drawing.Size(67, 21);
+            this.labelIdentity.TabIndex = 2;
+            this.labelIdentity.Text = "label1";
             // 
             // WMSnewHome
             // 
@@ -310,7 +337,6 @@
             this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
             this.Name = "WMSnewHome";
             this.Text = "仓库管理系统";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WMSnewHome_FormClosing);
@@ -344,5 +370,8 @@
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label labelUser;
+        private System.Windows.Forms.Label labelIdentity;
     }
 }

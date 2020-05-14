@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Configuration;
 using System.Windows.Forms;
 
@@ -54,6 +55,42 @@ namespace WMS
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/wangzmgit/wms");
+        }
+
+        /// <summary>
+        /// 备份数据库
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonBackUp_Click(object sender, EventArgs e)
+        {
+            string bkPath = Environment.CurrentDirectory + "\\back-up";
+            if (!Directory.Exists(bkPath))
+            {
+                Directory.CreateDirectory(bkPath);
+            }
+            if (!File.Exists(bkPath + "\\说明文件.txt"))
+            {
+                FileStream fs1 = new FileStream(bkPath + "\\说明文件.txt", FileMode.Create, FileAccess.Write);//创建写入文件 
+                StreamWriter sw = new StreamWriter(fs1);
+                sw.WriteLine("这是数据库备份文件，请勿删除");//开始写入值
+                sw.Close();
+                fs1.Close();
+            }
+            dbBackUp();
+        }
+
+        private void dbBackUp()
+        {
+            //数据库备份
+            string dbName = DateTime.Now.ToString("yyyy-MM-dd") + ".bak";
+            string bkPath = Environment.CurrentDirectory + "\\back-up";
+            string bkSql = "backup database WMS to disk='" + bkPath + "\\" + dbName + "'";
+            sqlHelper.dbBackUp(bkSql);
+            Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            cfa.AppSettings.Settings["LastBackup"].Value = DateTime.Now.ToString("yyyy-MM-dd");
+            cfa.Save();
+            MessageBox.Show("完成", "提示", MessageBoxButtons.OK);
         }
     }
 }

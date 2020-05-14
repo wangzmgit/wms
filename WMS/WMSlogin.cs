@@ -12,6 +12,12 @@ namespace WMS
         public WMSlogin()
         {
             InitializeComponent();
+            //双缓冲
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
+            SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
+
+            //半透明部分
             panel1.BackColor = Color.FromArgb(180, 255, 254, 250);//让panel半透明
             label1.BackColor = Color.Transparent;
             label2.BackColor = Color.Transparent;
@@ -104,9 +110,9 @@ namespace WMS
                     cfa.Save();
                 }
 
-                WMSnewHome newHome = new WMSnewHome();
+                WMSnewHome newHome = new WMSnewHome(uName);
+                Hide();
                 newHome.Show();
-                this.Hide();
             }
         }
 
