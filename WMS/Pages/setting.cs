@@ -12,16 +12,15 @@ namespace WMS
             InitializeComponent();
         }
         
+        /// <summary>
+        /// 保存按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSave_Click(object sender, EventArgs e)
         {
             //预警值设置
-            int intLess;
-            string less = textLessWarning.Text.Trim();
-            if(!int.TryParse(less,out intLess))
-            {
-                MessageBox.Show("预警值输入有误", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            string less = numericUpDown.Value.ToString();
             Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None); 
             {
                 cfa.AppSettings.Settings["lessWarning"].Value = less;
@@ -35,21 +34,45 @@ namespace WMS
             {
                 cfa.AppSettings.Settings["canTray"].Value = "true";
             }
+            //自动登录
+            if(!checkBoxAutoLogin.Checked)
+            {
+                cfa.AppSettings.Settings["autoLogin"].Value = "false";
+            }
+            else
+            {
+                cfa.AppSettings.Settings["autoLogin"].Value = "true";
+            }
             if(checkStart.Checked)
             {
                 MessageBox.Show("此功能正在开发中...", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             cfa.Save();
-            MessageBox.Show("设置成功，下次启动时生效", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult dr = MessageBox.Show("重启后生效，是否立即重启", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if(dr==DialogResult.OK)
+            {
+                Application.Restart();
+            }
+            else
+            {
+                return;
+            }           
         }
 
         private void WMSsetting_Load(object sender, EventArgs e)
         {
-            textLessWarning.Text = ConfigurationManager.AppSettings["lessWarning"];
+            numericUpDown.Value =int.Parse( ConfigurationManager.AppSettings["lessWarning"]);
+            //托盘是否选中
             if(ConfigurationManager.AppSettings["canTray"].Equals("true"))
             {
                 checkTray.Checked = true;
             }
+            //是否自动登录
+            if (ConfigurationManager.AppSettings["autoLogin"].Equals("true"))
+            {
+                checkBoxAutoLogin.Checked = true;
+            }
+
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -58,7 +81,7 @@ namespace WMS
         }
 
         /// <summary>
-        /// 备份数据库
+        /// 备份数据库按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -80,6 +103,9 @@ namespace WMS
             dbBackUp();
         }
 
+        /// <summary>
+        /// 备份数据库
+        /// </summary>
         private void dbBackUp()
         {
             //数据库备份

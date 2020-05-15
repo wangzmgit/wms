@@ -8,6 +8,7 @@ namespace WMS
     public partial class WMSnewHome : Form
     {
         private string userName = null;
+        public string isAdmin;
         public WMSnewHome(string _userName)
         {
             InitializeComponent();
@@ -19,8 +20,9 @@ namespace WMS
         {
             buttonHome_Click(sender, e);
             //notifyIcon1.Visible = false;  //托盘图标可见
-            labelUser.Text = "当前用户: "+userName;
-            dispalyIdentity(userName);
+            string Identity=dispalyIdentity(userName);
+            labelUser.Text = "当前用户: "+userName+"  "+Identity;
+            
         }
 
         private void cutomizeDesing()
@@ -36,12 +38,25 @@ namespace WMS
                 panel2.Visible = false;
         }
 
+        /// <summary>
+        /// 编辑信息按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            if (panel2.Visible == true)
-                panel2.Visible = false;
+            if(isAdmin=="1")
+            {
+                if (panel2.Visible == true)
+                    panel2.Visible = false;
+                else
+                    panel2.Visible = true;
+            }
             else
-                panel2.Visible = true;
+            {
+                MessageBox.Show("权限不足", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
         }
 
         private void WMSnewHome_FormClosing(object sender, FormClosingEventArgs e)
@@ -60,7 +75,7 @@ namespace WMS
                 }
                 else
                 {
-                     Application.ExitThread();                    
+                    Application.ExitThread();        
                 }
             }
             else
@@ -190,22 +205,39 @@ namespace WMS
             Application.ExitThread();
         }
 
-        private void dispalyIdentity(string userName)
+        private string dispalyIdentity(string userName)
         {
             string sql = "select isAdmin from userInfo where UserName=@UserName";
+            string Identity = null;
             SqlParameter[] paras =
             {
                 new SqlParameter("@UserName",userName)
             };
-            string isAdmin = sqlHelper.sqlExecuteScalar(sql, paras);
+            isAdmin = sqlHelper.sqlExecuteScalar(sql, paras);
             if(isAdmin=="1")
             {
-                labelIdentity.Text = "[管理员]";
+                Identity = "[管理员]";
             }
             else
             {
-                labelIdentity.Text = "[普通用户]";
+                Identity = "[普通用户]";
             }
+            return Identity;
+        }
+
+        /// <summary>
+        /// 注销
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //关闭自动登录
+            Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            cfa.AppSettings.Settings["autoLogin"].Value = "false";
+            cfa.Save();
+            //重启
+            Application.Restart();
         }
     }
 }

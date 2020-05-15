@@ -50,7 +50,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.labelIdentity = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelTitle.SuspendLayout();
@@ -254,7 +254,7 @@
             // panelTitle
             // 
             this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
-            this.panelTitle.Controls.Add(this.labelIdentity);
+            this.panelTitle.Controls.Add(this.linkLabel1);
             this.panelTitle.Controls.Add(this.labelUser);
             this.panelTitle.Controls.Add(this.title);
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
@@ -317,16 +317,18 @@
             this.toolStripMenuItem1.Text = "退出";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
-            // labelIdentity
+            // linkLabel1
             // 
-            this.labelIdentity.AutoSize = true;
-            this.labelIdentity.Font = new System.Drawing.Font("华文细黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelIdentity.ForeColor = System.Drawing.SystemColors.Window;
-            this.labelIdentity.Location = new System.Drawing.Point(866, 32);
-            this.labelIdentity.Name = "labelIdentity";
-            this.labelIdentity.Size = new System.Drawing.Size(67, 21);
-            this.labelIdentity.TabIndex = 2;
-            this.labelIdentity.Text = "label1";
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.Crimson;
+            this.linkLabel1.Location = new System.Drawing.Point(992, 38);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(67, 19);
+            this.linkLabel1.TabIndex = 2;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "[注销]";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // WMSnewHome
             // 
@@ -372,6 +374,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label labelUser;
-        private System.Windows.Forms.Label labelIdentity;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

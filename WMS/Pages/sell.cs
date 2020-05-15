@@ -155,16 +155,11 @@ namespace WMS
                     {
                         //获取旧库存
                         int oldStock =int.Parse( reader["stock"].ToString());
-                        int oldSales=0;//销量
                         //获取旧的销量
+                        int oldSales = 0;//销量
                         string sqlSales = "select sales from Inventory where productID = @productID";
                         SqlParameter paraSales = new SqlParameter("@productID", IDarr[j]);
-                        SqlDataReader read = sqlHelper.ExecutReader(sqlSales, paraSales);
-                        if(read.Read())
-                        {
-                            oldSales = int.Parse(read["sales"].ToString());
-                        }
-                        read.Close();
+                        oldSales = int.Parse(sqlHelper.sqlExecuteScalar(sqlSales, paraSales));
                         //旧库存减去数量
                         oldStock -= int.Parse(quantityArr[j].ToString());
                         //增加销量

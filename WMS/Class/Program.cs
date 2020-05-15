@@ -16,7 +16,12 @@ namespace WMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new WMSlogin());
+            //Application.Run(new WMSlogin());
+            WMSlogin login = new WMSlogin();
+            if (login.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new WMSnewHome(login.userName));//main窗体的构造方法
+            }
         }
     }
 }

@@ -94,6 +94,7 @@ namespace WMS
 
                 labelBackUpDate.Text = "暂无备份记录";
                 linkLabelGoSetting.Visible = true;
+                return;
             }
             else
             {

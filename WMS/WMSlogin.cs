@@ -8,6 +8,7 @@ namespace WMS
 {
     public partial class WMSlogin : Form
     {
+        public string userName;
         string key = "M01z0LTnpbARncm2kdwkFVXAWMBLgmZi";//加密秘钥
         public WMSlogin()
         {
@@ -40,6 +41,10 @@ namespace WMS
             {
                 userNameText.Text = ConfigurationManager.AppSettings["name"];
                 checkBox1.Checked = true;
+            }
+            if(ConfigurationManager.AppSettings["autoLogin"].Equals("true"))
+            {
+                login();
             }
         }
 
@@ -109,10 +114,11 @@ namespace WMS
                     cfa.AppSettings.Settings["pwd"].Value = "";
                     cfa.Save();
                 }
-
-                WMSnewHome newHome = new WMSnewHome(uName);
-                Hide();
-                newHome.Show();
+                userName = uName;
+                //将该窗体的返回值变为OK
+                DialogResult = DialogResult.OK;
+                //将该窗体关闭
+                Close();
             }
         }
 
