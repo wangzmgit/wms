@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace WMS
@@ -23,6 +25,7 @@ namespace WMS
             label1.BackColor = Color.Transparent;
             label2.BackColor = Color.Transparent;
             label3.BackColor = Color.Transparent;
+            linkLabel1.BackColor=Color.Transparent;
             checkBox1.BackColor = Color.Transparent;//选择框透明
             checkBox2.BackColor = Color.Transparent;
         }
@@ -138,6 +141,22 @@ namespace WMS
             {
                 checkBox2.Checked = false;
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string filePath= Environment.CurrentDirectory+"\\安装说明.txt";
+            if (string.IsNullOrEmpty(filePath) || !File.Exists(filePath))
+            {
+                return;
+            }
+
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = filePath;
+            psi.UseShellExecute = true;
+
+            Process.Start(psi);
+
         }
     }
 }

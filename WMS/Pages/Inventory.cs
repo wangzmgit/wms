@@ -33,7 +33,7 @@ namespace WMS
         private void button1_Click(object sender, EventArgs e)
         {
             string name = textName.Text.Trim();
-            string sql = "select productID,name,stock,unit,price,supplier,entry,remarks from Inventory where name Like @name";
+            string sql = "select productID,name,stock,unit,price,supplier,entry,remarks from Inventory where name Like @name and isDelete=0";
             if(!string.IsNullOrEmpty(name))
             {
                 SqlParameter[] paras =
@@ -48,6 +48,27 @@ namespace WMS
         private void button2_Click(object sender, EventArgs e)
         {
             dispalyAll();
+        }
+
+        /// <summary>
+        /// 查找按钮点击
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonFind_Click(object sender, EventArgs e)
+        {
+            //上面的查找按钮，单击打开查找的groupBox
+            groupBox1.Visible = true;
+            buttonFind.Visible = false;
+        }
+
+        /// <summary>
+        /// 收起按钮点击
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonCollapse_Click(object sender, EventArgs e)
+        {
             buttonFind.Visible = true;
             groupBox1.Visible = false;
         }
@@ -57,15 +78,9 @@ namespace WMS
         {
 
             dgvInventory.ForeColor = Color.Black;
-            string sql = "select productID,name,stock,unit,price,supplier,entry,remarks from Inventory";
+            string sql = "select productID,name,stock,unit,price,supplier,entry,remarks from Inventory where isDelete=0";
             DataTable dtGradeList = sqlHelper.GetDataTable(sql);
             dgvInventory.DataSource = dtGradeList;
-        }
-
-        private void buttonFind_Click(object sender, EventArgs e)
-        {
-            groupBox1.Visible = true;
-            buttonFind.Visible = false;
         }
     }
 }

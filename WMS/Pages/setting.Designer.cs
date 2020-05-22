@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxAutoLogin = new System.Windows.Forms.CheckBox();
             this.checkTray = new System.Windows.Forms.CheckBox();
-            this.checkStart = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonSave = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonBackUp = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBoxAutoLogin = new System.Windows.Forms.CheckBox();
-            this.numericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -49,7 +49,6 @@
             this.groupBox1.Controls.Add(this.numericUpDown);
             this.groupBox1.Controls.Add(this.checkBoxAutoLogin);
             this.groupBox1.Controls.Add(this.checkTray);
-            this.groupBox1.Controls.Add(this.checkStart);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.buttonSave);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -61,6 +60,29 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "设置";
             // 
+            // numericUpDown
+            // 
+            this.numericUpDown.Location = new System.Drawing.Point(189, 41);
+            this.numericUpDown.Name = "numericUpDown";
+            this.numericUpDown.Size = new System.Drawing.Size(120, 32);
+            this.numericUpDown.TabIndex = 7;
+            this.numericUpDown.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // checkBoxAutoLogin
+            // 
+            this.checkBoxAutoLogin.AutoSize = true;
+            this.checkBoxAutoLogin.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.checkBoxAutoLogin.Location = new System.Drawing.Point(467, 48);
+            this.checkBoxAutoLogin.Name = "checkBoxAutoLogin";
+            this.checkBoxAutoLogin.Size = new System.Drawing.Size(108, 25);
+            this.checkBoxAutoLogin.TabIndex = 6;
+            this.checkBoxAutoLogin.Text = "自动登录";
+            this.checkBoxAutoLogin.UseVisualStyleBackColor = true;
+            // 
             // checkTray
             // 
             this.checkTray.AutoSize = true;
@@ -71,17 +93,6 @@
             this.checkTray.TabIndex = 5;
             this.checkTray.Text = "退出到托盘";
             this.checkTray.UseVisualStyleBackColor = true;
-            // 
-            // checkStart
-            // 
-            this.checkStart.AutoSize = true;
-            this.checkStart.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.checkStart.Location = new System.Drawing.Point(495, 48);
-            this.checkStart.Name = "checkStart";
-            this.checkStart.Size = new System.Drawing.Size(108, 25);
-            this.checkStart.TabIndex = 4;
-            this.checkStart.Text = "开机启动";
-            this.checkStart.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -110,6 +121,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.buttonBackUp);
             this.groupBox2.Controls.Add(this.linkLabel1);
             this.groupBox2.Controls.Add(this.label1);
@@ -119,7 +131,7 @@
             this.groupBox2.Size = new System.Drawing.Size(1066, 289);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "其他内容";
+            this.groupBox2.Text = "帮助和其他内容";
             // 
             // buttonBackUp
             // 
@@ -127,7 +139,7 @@
             this.buttonBackUp.FlatAppearance.BorderSize = 0;
             this.buttonBackUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBackUp.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonBackUp.Location = new System.Drawing.Point(39, 52);
+            this.buttonBackUp.Location = new System.Drawing.Point(20, 218);
             this.buttonBackUp.Name = "buttonBackUp";
             this.buttonBackUp.Size = new System.Drawing.Size(153, 48);
             this.buttonBackUp.TabIndex = 2;
@@ -155,28 +167,15 @@
             this.label1.Size = new System.Drawing.Size(0, 21);
             this.label1.TabIndex = 0;
             // 
-            // checkBoxAutoLogin
+            // label3
             // 
-            this.checkBoxAutoLogin.AutoSize = true;
-            this.checkBoxAutoLogin.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.checkBoxAutoLogin.Location = new System.Drawing.Point(358, 133);
-            this.checkBoxAutoLogin.Name = "checkBoxAutoLogin";
-            this.checkBoxAutoLogin.Size = new System.Drawing.Size(108, 25);
-            this.checkBoxAutoLogin.TabIndex = 6;
-            this.checkBoxAutoLogin.Text = "自动登录";
-            this.checkBoxAutoLogin.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDown
-            // 
-            this.numericUpDown.Location = new System.Drawing.Point(189, 41);
-            this.numericUpDown.Name = "numericUpDown";
-            this.numericUpDown.Size = new System.Drawing.Size(120, 32);
-            this.numericUpDown.TabIndex = 7;
-            this.numericUpDown.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label3.Location = new System.Drawing.Point(22, 65);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 21);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "label3";
             // 
             // WMSsetting
             // 
@@ -190,9 +189,9 @@
             this.Load += new System.EventHandler(this.WMSsetting_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -206,9 +205,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkTray;
-        private System.Windows.Forms.CheckBox checkStart;
         private System.Windows.Forms.Button buttonBackUp;
         private System.Windows.Forms.CheckBox checkBoxAutoLogin;
         private System.Windows.Forms.NumericUpDown numericUpDown;
+        private System.Windows.Forms.Label label3;
     }
 }

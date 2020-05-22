@@ -5,6 +5,10 @@ namespace WMS
 {
     class beautify
     {
+        /// <summary>
+        /// dataGridView美化
+        /// </summary>
+        /// <param name="dgv"></param>
         public static void SetGridViewType(DataGridView dgv)
         {
             dgv.BackgroundColor = Color.White;

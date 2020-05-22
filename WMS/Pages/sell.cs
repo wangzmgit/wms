@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WMS
@@ -14,23 +8,23 @@ namespace WMS
     public partial class WMSsell : Form
     {
         float amount = 0;//总金额
+        FormWindowState tempWindowState;//最大化状态
         public WMSsell()
         {
             InitializeComponent();
+            initHeight();
         }
 
         private void WMSsell_Load(object sender, EventArgs e)
         {
-            dgvInventory.AllowUserToAddRows = false;
-            dgvOrder.AllowUserToAddRows = false;
+            dgvInventory.RowHeadersVisible = false;//除去第一列
+            dgvOrder.RowHeadersVisible = false;
+            displayAll();
         }
 
         private void displayALL_Click(object sender, EventArgs e)
         {
-            //显示全部信息
-            string sql = "select productID,name,stock,unit,price,remarks from Inventory";
-            DataTable dtGradeList = sqlHelper.GetDataTable(sql);
-            dgvInventory.DataSource = dtGradeList;
+            displayAll();
         }
 
         private void buttonFind_Click(object sender, EventArgs e)
@@ -109,8 +103,18 @@ namespace WMS
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 确认按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonSell_Click(object sender, EventArgs e)
         {
+            if(dgvOrder.RowCount==0)
+            {
+                MessageBox.Show("订单内容不能为空", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             string orderNum = dataProcessing.GenerateOrderNo();//生成订单号
             int[] IDarr = new int[dgvOrder.RowCount];
             int[] quantityArr = new int[dgvOrder.RowCount];//储存数量
@@ -142,7 +146,7 @@ namespace WMS
                             new SqlParameter("@quantity",quantityArr[j].ToString())
                     };
                     int addProReturn = sqlHelper.ExecuteNonQuery(sqlAdd, parasOrder);
-                    if (addProReturn<=0)
+                    if (addProReturn <= 0)
                     {
                         MessageBox.Show("订单创建失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
@@ -151,10 +155,10 @@ namespace WMS
                     string sqlFind = "select stock from Inventory where productID = @productID";
                     SqlParameter paraID = new SqlParameter("@productID", IDarr[j]);
                     SqlDataReader reader = sqlHelper.ExecutReader(sqlFind, paraID);
-                    if(reader.Read())
+                    if (reader.Read())
                     {
                         //获取旧库存
-                        int oldStock =int.Parse( reader["stock"].ToString());
+                        int oldStock = int.Parse(reader["stock"].ToString());
                         //获取旧的销量
                         int oldSales = 0;//销量
                         string sqlSales = "select sales from Inventory where productID = @productID";
@@ -163,7 +167,7 @@ namespace WMS
                         //旧库存减去数量
                         oldStock -= int.Parse(quantityArr[j].ToString());
                         //增加销量
-                        oldSales+= int.Parse(quantityArr[j].ToString());
+                        oldSales += int.Parse(quantityArr[j].ToString());
                         //重新写入
                         string sqlUpdate = "update Inventory set stock = @stock,sales=@sales where productID = @productID";
                         SqlParameter[] parasUpdate =
@@ -173,7 +177,7 @@ namespace WMS
                              new SqlParameter("@productID",IDarr[j])
                         };
                         int updataReturn = sqlHelper.ExecuteNonQuery(sqlUpdate, parasUpdate);
-                        if(updataReturn<=0)
+                        if (updataReturn <= 0)
                         {
                             MessageBox.Show("库存更新时发生错误", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
@@ -186,9 +190,50 @@ namespace WMS
             {
                 MessageBox.Show("订单创建失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
+        /// <summary>
+        /// 最大化与还原
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void WMSsell_Resize(object sender, EventArgs e)
+        {
+            int height = Height;//获取窗口高度
+            if (tempWindowState != FormWindowState.Maximized && WindowState == FormWindowState.Maximized)//点击最大化
+            {
+                tempWindowState = FormWindowState.Maximized;
+                //最大化时高度为窗口大小的35%，下同
+                dgvInventory.Height = Convert.ToInt32(height * 0.35);
+                groupBox2.Height= Convert.ToInt32(height * 0.4);
+                dgvOrder.Height= Convert.ToInt32(height * 0.4);
+            }
+            else if (tempWindowState == FormWindowState.Maximized && WindowState == FormWindowState.Normal)//窗口由最大化还原为普通
+            {
+                tempWindowState = FormWindowState.Normal;
+                initHeight();
+            }
+        }
 
+        /// <summary>
+        /// 初始高度
+        /// </summary>
+        private void initHeight()
+        {
+            int height = Height;//获取窗口高度
+            dgvInventory.Height = Convert.ToInt32(height * 0.3);
+            groupBox2.Height = Convert.ToInt32(height * 0.35);
+            dgvOrder.Height = Convert.ToInt32(height * 0.35);
+        }
+
+        /// <summary>
+        /// 显示全部信息
+        /// </summary>
+        private void displayAll()
+        {
+            string sql = "select productID,name,stock,unit,price,remarks from Inventory";
+            DataTable dtGradeList = sqlHelper.GetDataTable(sql);
+            dgvInventory.DataSource = dtGradeList;
+        }
     }
 }

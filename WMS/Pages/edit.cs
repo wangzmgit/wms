@@ -24,7 +24,7 @@ namespace WMS
         private void button1_Click(object sender, EventArgs e)
         {
             string name = textName.Text.Trim();
-            string sql = "select productID,name,stock,unit,supplier,entry,remarks from Inventory where name Like @name";
+            string sql = "select productID,name,stock,unit,supplier,entry,remarks from Inventory where name Like @name and isDelete=0";
             if (!string.IsNullOrEmpty(name))
             {
                 SqlParameter[] paras =
@@ -38,7 +38,7 @@ namespace WMS
 
         private void dispalyAll()
         {
-            string sql = "select productID,name,stock,unit,supplier,entry,remarks from Inventory";
+            string sql = "select productID,name,stock,unit,supplier,entry,remarks from Inventory where isDelete=0";
             DataTable dtGradeList = sqlHelper.GetDataTable(sql);
             dgvInventory.DataSource = dtGradeList;
             dgvInventory.AllowUserToAddRows = false;//去除空行
@@ -70,19 +70,35 @@ namespace WMS
                     {
                         //获取ID号
                         int productID = int.Parse(row["productID"].ToString());
-                        string sql = "delete from Inventory where productID = @productID";
+                        //真删除
+                        //string sql = "delete from Inventory where productID = @productID";
+                        //SqlParameter paras = new SqlParameter("@productID", productID);
+                        //int count = sqlHelper.ExecuteNonQuery(sql, paras);
+                        //if (count > 0)
+                        //{
+                        //    MessageBox.Show("删除成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //    WMSedit_Load(sender, e);
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show("删除失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //    return;
+                        //}
+
+                        //假删除
+                        string sqlUpdate = "update Inventory set isDelete=1 where productID = @productID";
                         SqlParameter paras = new SqlParameter("@productID", productID);
-                        int count = sqlHelper.ExecuteNonQuery(sql, paras);
+                        int count = sqlHelper.ExecuteNonQuery(sqlUpdate, paras);
                         if (count > 0)
                         {
-                            MessageBox.Show("删除成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            WMSedit_Load(sender, e);
+                            MessageBox.Show("删除成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            dispalyAll();
                         }
                         else
                         {
                             MessageBox.Show("删除失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
                         }
+
                     }
                     else
                     {

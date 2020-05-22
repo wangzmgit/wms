@@ -43,10 +43,6 @@ namespace WMS
             {
                 cfa.AppSettings.Settings["autoLogin"].Value = "true";
             }
-            if(checkStart.Checked)
-            {
-                MessageBox.Show("此功能正在开发中...", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
             cfa.Save();
             DialogResult dr = MessageBox.Show("重启后生效，是否立即重启", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if(dr==DialogResult.OK)
@@ -72,6 +68,7 @@ namespace WMS
             {
                 checkBoxAutoLogin.Checked = true;
             }
+            label3.Text = "批量导入示例位置：" + Environment.CurrentDirectory;
 
         }
 
@@ -118,5 +115,6 @@ namespace WMS
             cfa.Save();
             MessageBox.Show("完成", "提示", MessageBoxButtons.OK);
         }
+
     }
 }
